@@ -76,7 +76,8 @@
                                          &trans        &trans        &trans                                                                          &kp INS          &kp DEL          &trans
             >;
 
-        raise_layer {
+            sensor-bindings = <&scroll_encoder>;
+        };
             display-name = "SYMBOL";
             bindings = <
 &trans  &kp EXCL      &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                            &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
