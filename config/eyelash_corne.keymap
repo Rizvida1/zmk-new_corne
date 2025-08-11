@@ -35,13 +35,22 @@
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
         };
 
-        td1: td1 {
+        spc_layer: spc_layer {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Space Layer";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&spc_dot>;
+        };
+
+        spc_dot: spc_dot {
             compatible = "zmk,behavior-tap-dance";
             label = "Space Dot";
             #binding-cells = <0>;
-            bindings = <&lt 3 SPACE>, <&dot_spc>;
-
-            tapping-term-ms = <100>;
+            bindings = <&kp SPACE>, <&dot_spc>;
+            tapping-term-ms = <250>;
         };
     };
 
@@ -77,7 +86,7 @@
 &kp TAB   &kp Q  &kp W  &kp E     &kp R  &kp T                              &kp UP                &kp Y  &kp U  &kp I      &kp O    &kp P     &mt ENTER UNDERSCORE
 &td0      &kp A  &kp S  &kp D     &kp F  &kp G                    &kp LEFT  &kp ENTER  &kp RIGHT  &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LALT  &kp Z  &kp X  &kp C     &kp V  &kp B       &mkp MCLK              &kp DOWN              &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                        &kp LGUI  &mo 1  &lt 3 BSPC                                               &td1   &mo 2  &kp RCTRL
+                        &kp LGUI  &mo 1  &lt 3 BSPC                                               &spc_layer 3 0   &mo 2  &kp RCTRL
             >;
 
             sensor-bindings = <&scroll_encoder>;
