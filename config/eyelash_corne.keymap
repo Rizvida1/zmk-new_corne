@@ -143,6 +143,27 @@
             bindings = <&kp DEL>;
             layers = <0>;
         };
+        
+        combo_ctrl_d {
+            timeout-ms = <50>;
+            key-positions = <2 3>; // W + E
+            bindings = <&kp LC(D)>;
+            layers = <0>;
+        };
+        
+        combo_ctrl_f {
+            timeout-ms = <50>;
+            key-positions = <3 4>; // E + R
+            bindings = <&kp LC(F)>;
+            layers = <0>;
+        };
+        
+        combo_ctrl_shift_f {
+            timeout-ms = <50>;
+            key-positions = <2 4>; // W + R
+            bindings = <&kp LC(LS(F))>;
+            layers = <0>;
+        };
     };
 
     rgb_encoder: rgb_encoder {
@@ -225,7 +246,7 @@
             display-name = "Fn";
             bindings = <
 &studio_unlock  &kp F1      &kp F2  &kp F3       &kp F4         &kp F5                                              &mmv MOVE_UP                &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans          &ast_macro  &trans  &trans       &at_macroacro  &mkp MB4                            &mmv MOVE_LEFT  &mkp LCLK   &mmv MOVE_RIGHT &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+&trans          &ast_macro  &trans  &trans       &at_macro      &mkp MB4                            &mmv MOVE_LEFT  &mkp LCLK   &mmv MOVE_RIGHT &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
 &trans          &sys_reset  &trans  &bootloader  &trans         &mkp MB5  &mt LC(LS(T)) LC(W)                       &mmv MOVE_DOWN              &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
                                     &trans       &trans         &trans                                                                          &trans  &trans     &trans
             >;
