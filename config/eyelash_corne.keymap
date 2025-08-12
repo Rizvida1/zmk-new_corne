@@ -27,20 +27,29 @@
 };
 
 /* Homerow mods configuration */
-// Key positions for Corne layout (0-41)
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-// │  0          │  1          │  2          │  3          │  4          │  5          │   │  6          │  7          │  8          │  9          │ 10          │ 11          │
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │ 12          │ 13          │ 14          │ 15          │ 16          │ 17          │   │ 18          │ 19          │ 20          │ 21          │ 22          │ 23          │
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │ 24          │ 25          │ 26          │ 27          │ 28          │ 29          │   │ 30          │ 31          │ 32          │ 33          │ 34          │ 35          │
-// ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-//                                           │ 36          │ 37          │ 38          │   │ 39          │ 40          │ 41          │
-//                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+// Key Layout for Eyelash Corne (42 keys + extras)
+// Based on matrix transform and actual key bindings:
+//
+// Standard Keys (0-41):
+// ┌───┬───┬───┬───┬───┬───┐              ┌───┐     ┌───┬───┬───┬───┬───┬───┐
+// │ 0 │ 1 │ 2 │ 3 │ 4 │ 5 │              │ 6 │     │ 7 │ 8 │ 9 │10 │11 │12 │
+// ├───┼───┼───┼───┼───┼───┤          ┌───┼───┼───┐ ├───┼───┼───┼───┼───┼───┤
+// │13 │14 │15 │16 │17 │18 │          │19 │20 │21 │ │22 │23 │24 │25 │26 │27 │
+// ├───┼───┼───┼───┼───┼───┤          └───┼───┼───┘ ├───┼───┼───┼───┼───┼───┤
+// │28 │29 │30 │31 │32 │33 │  ┌───┐       │35 │     │36 │37 │38 │39 │40 │41 │
+// └───┴───┴───┼───┼───┼───┤  │34 │       └───┘     ├───┼───┼───┼───┴───┴───┘
+//             │36 │37 │38 │  └───┘                 │39 │40 │41 │
+//             └───┴───┴───┘                        └───┴───┴───┘
+//
+// Special positioning for joystick/pointing:
+//  6 = UP movement       19,20,21 = LEFT, CENTER/CLICK, RIGHT movement    35 = DOWN movement  
+//
+// Note: Encoder scroll is handled separately via sensor-bindings
 
-#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29  // Left hand keys
-#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35  // Right hand keys  
-#define THUMBS 36 37 38 39 40 41                                  // Thumb keys
+#define KEYS_L 0 1 2 3 4 5 13 14 15 16 17 18 28 29 30 31 32 33 34  // Left hand keys
+#define KEYS_R 7 8 9 10 11 12 22 23 24 25 26 27 35 36 37 38 39 40 41  // Right hand keys (excluding joystick)
+#define THUMBS 36 37 38 39 40 41  // Thumb keys
+#define POINTING 6 19 20 21 35  // Joystick cluster
 
 #define QUICK_TAP_MS 175
 
@@ -61,10 +70,10 @@
 / {
     behaviors {
         // Left-hand homerow mods
-        MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
+        MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS POINTING)
         
         // Right-hand homerow mods  
-        MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
+        MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS POINTING)
         
         shift_caps: shift_caps {
             compatible = "zmk,behavior-tap-dance";
@@ -118,28 +127,28 @@
         
         combo_copy {
             timeout-ms = <50>;
-            key-positions = <26 27>; // X + C
+            key-positions = <30 31>; // X + C 
             bindings = <&kp LC(C)>;
             layers = <0>;
         };
         
         combo_paste {
             timeout-ms = <50>;
-            key-positions = <27 28>; // C + V  
+            key-positions = <31 32>; // C + V 
             bindings = <&kp LC(V)>;
             layers = <0>;
         };
         
         combo_cut {
             timeout-ms = <50>;
-            key-positions = <25 26>; // Z + X
+            key-positions = <29 30>; // Z + X 
             bindings = <&kp LC(X)>;
             layers = <0>;
         };
         
         combo_delete {
             timeout-ms = <50>;
-            key-positions = <9 10>; // O + P
+            key-positions = <9 10>; // O + P corrected indices
             bindings = <&kp DEL>;
             layers = <0>;
         };
