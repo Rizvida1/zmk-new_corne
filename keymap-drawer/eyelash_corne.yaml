@@ -44,7 +44,7 @@ layers:
   - {t: /, s: '?'}
   - $$mdi:keyboard-esc$$
   - LGUI
-  - '&mo 3 BSPC'
+  - {t: '$$mdi:backspace$$', h: Fn}
   - NUMBER
   - SYMBOL
   - {t: '&spc_dot', h: Fn}
@@ -191,19 +191,19 @@ layers:
   - SCROLLLOCK
   - PAUSE BREAK
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held alternate}
+  - {t: '$$mdi:transfer$$', type: trans}
 combos:
-- p: [26, 27]
+- p: [30, 31]
   k: Ctl+C
   l: [Rizvi]
-- p: [27, 28]
+- p: [31, 32]
   k: Ctl+V
   l: [Rizvi]
-- p: [25, 26]
+- p: [29, 30]
   k: Ctl+X
   l: [Rizvi]
 - p: [9, 10]
