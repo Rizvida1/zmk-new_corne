@@ -14,7 +14,7 @@ layers:
   - O
   - P
   - {t: _, h: '$$mdi:keyboard-return$$'}
-  - '&td0'
+  - '&shift_caps'
   - {t: A, h: LGUI}
   - {t: S, h: '$$mdi:apple-keyboard-option$$'}
   - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
@@ -44,10 +44,10 @@ layers:
   - {t: /, s: '?'}
   - $$mdi:keyboard-esc$$
   - LGUI
+  - '&mo 3 BSPC'
   - NUMBER
-  - {t: '$$mdi:backspace$$', h: Fn}
-  - {t: '&spc_dot', h: Fn}
   - SYMBOL
+  - {t: '&spc_dot', h: Fn}
   - $$mdi:apple-keyboard-control$$
   NUMBER:
   - Ctl+Alt+$$mdi:backspace-reverse-outline$$
@@ -93,10 +93,10 @@ layers:
   - END
   - PG DN
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
-  - INS
+  - {type: held}
   - $$mdi:backspace-reverse-outline$$
+  - INS
   - $$mdi:mouse-right-click-outline$$
   SYMBOL:
   - {t: '$$mdi:transfer$$', type: trans}
@@ -142,10 +142,10 @@ layers:
   - '|'
   - '~'
   - Ctl+$$mdi:keyboard-space$$
-  - Alt+$$mdi:keyboard-tab$$
   - {t: '$$mdi:backspace$$', type: backspace}
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - Alt+$$mdi:keyboard-tab$$
   - {type: held}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:transfer$$', type: trans}
   Fn:
   - '&studio_unlock'
@@ -162,10 +162,10 @@ layers:
   - F10
   - F11
   - {t: '$$mdi:transfer$$', type: trans}
+  - '&ast_macro'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - Gui+$$mdi:keyboard-tab$$
+  - '&at_macroacro'
   - '&mkp MB4'
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
   - $$mdi:mouse-left-click-outline$$
@@ -192,7 +192,20 @@ layers:
   - PAUSE BREAK
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
-  - {type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+combos:
+- p: [26, 27]
+  k: Ctl+C
+  l: [Rizvi]
+- p: [27, 28]
+  k: Ctl+V
+  l: [Rizvi]
+- p: [25, 26]
+  k: Ctl+X
+  l: [Rizvi]
+- p: [9, 10]
+  k: $$mdi:backspace-reverse-outline$$
+  l: [Rizvi]
