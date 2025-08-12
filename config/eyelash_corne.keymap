@@ -16,14 +16,14 @@
 
 &msc {
     acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <100>;       // 300
+    time-to-max-speed-ms = <40>;      // Faster scroll acceleration (was 100)
     delay-ms = <0>;                   // 0
 };
 
 &mmv {
-    time-to-max-speed-ms = <1000>;
-    acceleration-exponent = <2>;
-    trigger-period-ms = <16>;
+    time-to-max-speed-ms = <500>;     // Faster mouse acceleration (was 1000)
+    acceleration-exponent = <1>;      // Smoother acceleration curve (was 2)
+    trigger-period-ms = <12>;         // More responsive (was 16)
 };
 
 /* Homerow mods configuration */
@@ -65,11 +65,13 @@
         
         // Right-hand homerow mods  
         MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
-        td0: td0 {
+        
+        shift_caps: shift_caps {
             compatible = "zmk,behavior-tap-dance";
-            display-name = "Shift/Caps Lock Tap Dance";
+            display-name = "Shift/Caps Word";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+            bindings = <&kp LEFT_SHIFT>, <&caps_word>;
+            tapping-term-ms = <200>;
         };
 
         spc_layer: spc_layer {
@@ -88,6 +90,58 @@
             #binding-cells = <0>;
             bindings = <&kp SPACE>, <&dot_spc>;
             tapping-term-ms = <350>;
+        };
+
+        alt_tab: alt_tab {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Alt Tab";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&kt>, <&kp>;
+        };
+
+        alt_shift_tab: alt_shift_tab {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Alt Shift Tab";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&kt>, <&kp>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        
+        combo_copy {
+            timeout-ms = <50>;
+            key-positions = <26 27>; // X + C
+            bindings = <&kp LC(C)>;
+            layers = <0>;
+        };
+        
+        combo_paste {
+            timeout-ms = <50>;
+            key-positions = <27 28>; // C + V  
+            bindings = <&kp LC(V)>;
+            layers = <0>;
+        };
+        
+        combo_cut {
+            timeout-ms = <50>;
+            key-positions = <25 26>; // Z + X
+            bindings = <&kp LC(X)>;
+            layers = <0>;
+        };
+        
+        combo_delete {
+            timeout-ms = <50>;
+            key-positions = <9 10>; // O + P
+            bindings = <&kp DEL>;
+            layers = <0>;
         };
     };
 
@@ -112,6 +166,20 @@
             bindings = <&kp DOT &kp SPACE>;
             label = "DOT_SPC";
         };
+
+        at_macro: at_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_release &kp LALT>;
+            label = "ALT_TAB";
+        };
+
+        ast_macro: ast_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LALT &kp LSHFT>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_release &kp LSHFT &kp LALT>;
+            label = "ALT_SHIFT_TAB";
+        };
     };
 
     keymap {
@@ -120,10 +188,10 @@
         default_layer {
             display-name = "Rizvi";
             bindings = <
-&kp TAB   &kp Q  &kp W  &kp E     &kp R  &kp T                              &kp UP                &kp Y  &kp U  &kp I      &kp O    &kp P     &mt ENTER UNDERSCORE
-&td0      &hml LGUI A  &hml LALT S  &hml LSHFT D     &hml LCTRL F  &kp G                    &kp LEFT  &kp ENTER  &kp RIGHT  &kp H  &hmr LCTRL J  &hmr RSHFT K      &hmr LALT L    &hmr LGUI SEMI  &kp SQT
-&kp LALT  &kp Z  &kp X  &kp C     &kp V  &kp B       &mkp MCLK              &kp DOWN              &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                        &kp LGUI  &mo 1  &lt 3 BSPC                                               &spc_layer 3 0   &mo 2  &kp RCTRL
+&kp TAB		&kp Q		&kp W		    &kp E		    &kp R		    &kp T					                &kp UP		            &kp Y		    &kp U		    &kp I		    &kp O		&kp P		    &mt ENTER UNDER
+&shift_caps	&hml LGUI A	&hml LALT S	    &hml LSHFT D	&hml LCTRL F	&kp G		                &kp LEFT	&kp ENTER	&kp RIGHT	&kp H		    &hmr LCTRL J	&hmr RSHFT K	&hmr LALT L	&hmr LGUI SEMI	&kp SQT
+&kp LALT	&kp Z		&kp X		    &kp C		    &kp V		    &kp B		&mkp MCLK	                &kp DOWN			    &kp N		    &kp M		    &kp COMMA	    &kp DOT		&kp FSLH	    &kp ESC
+						&kp LGUI	    &mo 3 BSPC	    &mo 1						                                                    &mo 2		    &spc_layer 3 0	&kp RCTRL
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -135,7 +203,7 @@
 &kp LC(LA(DEL))  &kp N1           &kp N2          &kp N3           &kp N4           &kp N5                                         &mmv MOVE_UP                     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
 &bt BT_CLR_ALL   &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
 &trans           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_HUI  &rgb_ug RGB_HUD  &rgb_ug RGB_EFF  &kp C_MUTE                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                                                  &trans           &trans           &trans                                                                          &kp INS          &kp DEL          &mkp RCLK
+                                                  &trans           &trans           &trans                                                                          &kp DEL          &kp INS          &mkp RCLK
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -147,7 +215,7 @@
 &trans  &kp EXCL      &kp AT        &kp HASH       &kp DLLR     &kp PRCNT                                         &kp C_PREV                &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
 &trans  &bt BT_CLR    &mkp MB4      &mkp MCLK      &mkp MB5     &mkp LCLK                                 &trans  &kp C_PLAY_PAUSE  &trans  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
 &trans  &out OUT_USB  &out OUT_BLE  &none          &none        &mkp RCLK      &mt LC(SPACE) LG(LA(K))            &kp C_NEXT                &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                                    &kp LC(SPACE)  &kp LA(TAB)  &kp BACKSPACE                                                               &kp RET    &trans     &trans
+                                    &kp LC(SPACE)  &kp BSPC     &kp LA(TAB)                                                               &trans         &kp RET        &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -156,10 +224,10 @@
         layer_3 {
             display-name = "Fn";
             bindings = <
-&studio_unlock  &kp F1      &kp F2  &kp F3       &kp F4       &kp F5                                           &mmv MOVE_UP                     &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans          &trans      &trans  &trans       &kp LG(TAB)  &mkp MB4                         &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
-&trans          &sys_reset  &trans  &bootloader  &trans       &mkp MB5  &mt LC(LS(T)) LC(W)                    &mmv MOVE_DOWN                   &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                                    &trans       &trans       &trans                                                                            &trans  &trans     &trans
+&studio_unlock  &kp F1      &kp F2  &kp F3       &kp F4         &kp F5                                              &mmv MOVE_UP                &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
+&trans          &ast_macro  &trans  &trans       &at_macroacro  &mkp MB4                            &mmv MOVE_LEFT  &mkp LCLK   &mmv MOVE_RIGHT &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+&trans          &sys_reset  &trans  &bootloader  &trans         &mkp MB5  &mt LC(LS(T)) LC(W)                       &mmv MOVE_DOWN              &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
+                                    &trans       &trans         &trans                                                                          &trans  &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(TAB) LC(LS(TAB))>;
