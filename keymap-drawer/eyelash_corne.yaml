@@ -165,7 +165,7 @@ layers:
   - '&ast_macro'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&at_macroacro'
+  - '&at_macro'
   - '&mkp MB4'
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
   - $$mdi:mouse-left-click-outline$$
@@ -208,4 +208,13 @@ combos:
   l: [Rizvi]
 - p: [9, 10]
   k: $$mdi:backspace-reverse-outline$$
+  l: [Rizvi]
+- p: [2, 3]
+  k: Ctl+D
+  l: [Rizvi]
+- p: [3, 4]
+  k: Ctl+F
+  l: [Rizvi]
+- p: [2, 4]
+  k: Ctl+Sft+F
   l: [Rizvi]
