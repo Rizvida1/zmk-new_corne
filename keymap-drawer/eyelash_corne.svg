@@ -216,86 +216,84 @@ path.combo {
 }
 /* End Tabler Icons Cleanup */
 
-/* ===== Enhanced styling (pretty + optional combos view) ===== */
-/* Base font setup */
+/* For default sytles, see https://github.com/caksoylar/keymap-drawer/blob/main/keymap_drawer/config.py#L85 */
+
 svg.keymap {
-  font-family: "Ubuntu Mono", Inconsolata, Consolas, "Liberation Mono", Menlo, monospace;
+  font-family: Ubuntu Mono, Inconsolata, Consolas, Liberation Mono, Menlo, monospace;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: bold;
   text-rendering: optimizeLegibility;
 }
 
-/* Key appearance */
-rect.key { fill:#f8f9fa; stroke:#b9c1c9; stroke-width:0.9px; rx:6px; ry:6px; }
-rect.key.layer-0 { fill:#f5faff; }
-rect.key.layer-1 { fill:#f9f5ff; }
-rect.key.layer-2 { fill:#f5fff7; }
-rect.key.layer-3 { fill:#fffaf5; }
-rect.held, rect.combo.held { fill:#ffe9b3; }
-rect.key:hover { stroke:#5b6a78; }
-
-/* Thumb cluster heuristic (depends on generated grouping) */
-g[id*='thumb'] rect.key { stroke:#667; stroke-width:1.1px; }
-
-/* Combos (default in main sheet) */
-rect.combo { fill:#ffffff; stroke:#555; stroke-width:1px; stroke-dasharray:3 2; }
-/* Color accents by semantic name fragment */
-g[id*='undo'] rect.combo { fill:#eef4ff; stroke:#335ea8; }
-g[id*='save'] rect.combo { fill:#e6fff4; stroke:#0a7d55; }
-g[id*='paste'] rect.combo { fill:#fff7e6; stroke:#c07a00; }
-g[id*='cut'] rect.combo { fill:#fff0f0; stroke:#c03d3d; }
-g[id*='copy'] rect.combo { fill:#f1f1ff; stroke:#5a52c4; }
-
-/* Text layering */
-.hold { opacity:.85; font-size:10px; }
-.shifted { opacity:.9; font-size:10px; }
-.tap { font-weight:700; }
-
-/* Optional: hide combo hold/shifted legends for cleaner look; toggle by comment */
-/* .combo .hold, .combo .shifted { display:none; } */
-
-/* Symbol-sub variants retained */
-.sym_sub_text.tap { translate:-5px 2px; font-size:20px; }
-.sym_sub_text.shifted { translate:10px 13px; font-size:10px; opacity:1; }
-.combo.sym_sub_text.tap { translate:-1px 1px; }
-.combo.sym_sub_text.shifted { translate:7px 5px; font-size:10px; opacity:1; }
-
-/* Tap-dance variants */
-.tap_dance.tap { translate:-7px 0px; font-size:12px; }
-.tap_dance.shifted { translate:7px 17px; font-size:12px; opacity:1; }
-
-/* Sym-by-sym variants */
-.sym_by_sym.tap { translate:-6px 0; }
-.sym_by_sym.shifted { translate:10px 12px; opacity:1; }
-.combo.sym_by_sym.tap { translate:-35px 0; }
-.combo.sym_by_sym.shifted { translate:35px 20px; opacity:1; }
-.combo.sym_by_sym.hold { visibility:hidden; }
-.combo.sym_by_sym.hold > path[stroke="none"][fill="none"] { visibility:hidden; }
-
-/* Toggle legends */
-.toggle.shifted { translate:-10px 12px; }
-.toggle.hold { translate:13px -23px; }
-
-/* Connectors (if generated) */
-path.combo-line { stroke:#666; stroke-width:1.05px; stroke-dasharray:4 3; opacity:.85; }
-
-/* ===== Combos-only MODE (emulated) ===== */
-/* Add class 'combos-only' to <svg class="keymap combos-only"> manually (post-export) to produce a combos sheet */
-svg.keymap.combos-only rect.key { opacity:.18; }
-svg.keymap.combos-only rect.combo { stroke-width:1.3px; stroke-dasharray:none; filter:drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
-svg.keymap.combos-only .hold, svg.keymap.combos-only .shifted { display:none; }
-svg.keymap.combos-only g.layer:not(:first-of-type) > text.layer-name { display:none; }
-/* Hide base layer key legends (optional) */
-/* svg.keymap.combos-only g.layer text.tap { opacity:.15; } */
-
-/* ===== Print / dark mode hints ===== */
-@media (prefers-color-scheme: dark) {
-  rect.key { fill:#1f2428; stroke:#3a444c; }
-  rect.combo { fill:#272e34; stroke:#6c7882; }
-  svg.keymap { color:#e2e8f0; }
+/* Color accent for held keys */
+rect.held, rect.combo.held {
+    fill: #ffc;
 }
 
-/* End enhanced styling */
+/* Technique borrowed and extended from https://github.com/englmaxi/zmk-config/blob/master/keymap-drawer/config.yaml */
+.sym_sub_text.tap {
+  translate: -5px 2px;
+  font-size: 20px;
+}
+.sym_sub_text.shifted {
+  translate: 10px 13px;
+  font-size: 10px;
+  opacity: 1.0;
+}
+.combo.sym_sub_text.tap {
+  translate: -1px 1px;
+}
+.combo.sym_sub_text.shifted {
+  translate: 7px 5px;
+  font-size: 10px;
+  opacity: 1.0;
+}
+
+/* Toggle */
+.toggle.shifted {
+  translate: -10px 12px;
+}
+
+.toggle.hold {
+  translate: 13px -23px;
+}
+
+/* Variant for tap-dances */
+.tap_dance.tap {
+  translate: -7px 0px;
+  font-size: 12px;
+}
+.tap_dance.shifted {
+  translate: 7px 17px;
+  font-size: 12px;
+  opacity: 1.0;
+}
+
+/* Variant for symbol next to symbol */
+.sym_by_sym.tap {
+  translate: -6px 0px;
+}
+.sym_by_sym.shifted {
+  translate: 10px 12px;
+  opacity: 1.0;
+}
+
+.combo.sym_by_sym.tap {
+  translate: -35px 0px;
+}
+.combo.sym_by_sym.shifted {
+  translate: 35px 20px;
+  opacity: 1.0;
+}
+
+.combo.sym_by_sym.hold {
+  visibility: hidden;
+}
+
+/* hide hold box for combo sym_by_sym */
+.combo.sym_by_sym.hold > path[stroke="none"][fill="none"] {
+  visibility: hidden;
+}
 </style>
 <g transform="translate(40, 0)" class="layer-Rizvi">
 <text x="0" y="28" class="label" id="Rizvi">Rizvi:</text>
