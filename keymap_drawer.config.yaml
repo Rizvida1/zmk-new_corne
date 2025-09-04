@@ -390,29 +390,18 @@ parse_config:
       tap: 0
       shifted: ")"
 
-    # Modifiers
+    # Modifiers (only those used in your keymap)
     LCTRL: "Ctrl"
-    LEFT_CONTROL: "Ctrl"
     LALT: "Alt"
-    LEFT_ALT: "Alt"
     LSHIFT: $$mdi:arrow-up-bold$$
     LEFT_SHIFT: $$mdi:arrow-up-bold$$
     LSHFT: $$mdi:arrow-up-bold$$
-    LCMD: $$mdi:microsoft-windows$$
-    LG: $$mdi:microsoft-windows$$
-    LEFT_GUI: $$mdi:microsoft-windows$$
-    LEFT_COMMAND: $$mdi:microsoft-windows$$
+    LGUI: $$mdi:microsoft-windows$$
     RCTRL: "Ctrl"
-    RIGHT_CONTROL: "Ctrl"
     RALT: "Alt"
-    RIGHT_ALT: "Alt"
     RSHIFT: $$mdi:arrow-up-bold$$
-    RIGHT_SHIFT: $$mdi:arrow-up-bold$$
-    RSHFT: $$mdi:arrow-up-bold$$
-    RCMD: $$mdi:microsoft-windows$$
-    RG: $$mdi:microsoft-windows$$
-    PSCRN: $$mdi:printer-outline$$
-    RIGHT_COMMAND: $$mdi:microsoft-windows$$
+    RGUI: $$mdi:microsoft-windows$$
+    PRINTSCREEN: $$mdi:printer-outline$$
     PAGE_UP:
       tap: "PgUp"
       shifted: ""
