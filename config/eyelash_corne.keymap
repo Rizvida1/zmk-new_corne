@@ -86,25 +86,6 @@
             tapping-term-ms = <200>;
         };
 
-        spc_layer: spc_layer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Space Layer";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            bindings = <&mo>, <&spc_dot>;
-        };
-
-        spc_dot: spc_dot {
-            compatible = "zmk,behavior-tap-dance";
-            label = "Space Dot";
-            #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&dot_spc>;
-
-            tapping-term-ms = <350>;
-        };
-
         /* Removed legacy hold-tap Alt-Tab behaviors; using simple sticky macros instead */
     };
 
@@ -218,27 +199,33 @@
     };
 
     macros {
-        dot_spc: dot_spc {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp DOT &kp SPACE>;
-            label = "DOT_SPC";
-        };
-
-        /* Simple sticky Alt+Tab macros (tap repeatedly to cycle) */
+        /* Alt+Tab macros with sticky Alt and timeout */
 
         alt_tab: alt_tab {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kt LALT &kp TAB>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&sk LALT>, <&kp TAB>;
             label = "ALT_TAB";
         };
 
         alt_tab_prev: alt_tab_prev {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kt LALT &kp LS(TAB)>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&sk LALT>, <&kp LS(TAB)>;
             label = "ALT_TAB_PREV";
+        };
+
+        alt_release: alt_release {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&kp K_CANCEL>;
+            label = "ALT_RELEASE";
         };
     };
 
@@ -248,10 +235,10 @@
         default_layer {
             display-name = "Rizvi";
             bindings = <
-&kp TAB      &kp Q        &kp W        &kp E         &kp R         &kp T                         &kp UP                &kp Y  &kp U           &kp I         &kp O        &kp P           &kp ESC
-&shift_caps  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G               &kp LEFT  &kp ENTER  &kp RIGHT  &kp H  &hmr LCTRL J    &hmr RSHFT K  &hmr LALT L  &hmr LGUI SEMI  &kp SQT
-&kp LALT     &kp Z        &kp X        &kp C         &kp V         &kp B  &mkp MCLK              &kp DOWN              &kp N  &kp M           &kp COMMA     &kp DOT      &kp FSLH        &kp ENTER
-                                       &kp LGUI      &lt 3 BSPC    &mo 2                                               &mo 1  &spc_layer 3 0  &kp RCTRL
+&kp TAB      &kp Q        &kp W        &kp E         &kp R         &kp T                         &kp UP                &kp Y  &kp U         &kp I         &kp O        &kp P           &kp ESC
+&shift_caps  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G               &kp LEFT  &kp ENTER  &kp RIGHT  &kp H  &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L  &hmr LGUI SEMI  &kp SQT
+&kp LALT     &kp Z        &kp X        &kp C         &kp V         &kp B  &mkp MCLK              &kp DOWN              &kp N  &kp M         &kp COMMA     &kp DOT      &kp FSLH        &kp ENTER
+                                       &kp LGUI      &lt 3 BSPC    &mo 2                                               &mo 1  &lt 3 SPACE   &kp RCTRL
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -284,10 +271,10 @@
         layer_3 {
             display-name = "Fn";
             bindings = <
-&studio_unlock  &kp F1      &kp F2         &kp F3       &kp F4    &kp F5                                           &mmv MOVE_UP                     &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans          &trans      &alt_tab_prev  &trans       &alt_tab  &mkp MB4                         &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
-&trans          &sys_reset  &trans         &bootloader  &trans    &mkp MB5  &mt LC(LS(T)) LC(W)                    &mmv MOVE_DOWN                   &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                                           &trans       &trans    &trans                                                                            &trans  &trans     &trans
+&studio_unlock  &kp F1      &kp F2          &kp F3          &kp F4      &kp F5                                           &mmv MOVE_UP                       &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
+&trans          &trans      &alt_tab_prev   &alt_release    &alt_tab    &mkp MB4                         &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT    &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+&trans          &sys_reset  &trans          &bootloader     &trans      &mkp MB5    &mt LC(LS(T)) LC(W)                  &mmv MOVE_DOWN                     &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
+                                            &trans          &trans      &trans                                                                              &trans  &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(TAB) LC(LS(TAB))>;
