@@ -190,7 +190,16 @@
 
         combo_enter {
             bindings = <&kp RET>;
-            key-positions = <39 40>;
+            key-positions = <23 17>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        combo_terminal {
+            bindings = <&kp LC(GRAVE)>;
+            key-positions = <0 1>;
+            timeout-ms = <50>;
+            layers = <0>;
         };
     };
 
@@ -242,7 +251,7 @@
 &kp TAB      &kp Q        &kp W        &kp E         &kp R         &kp T                         &kp UP                &kp Y  &kp U           &kp I         &kp O        &kp P           &kp ESC
 &shift_caps  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G               &kp LEFT  &kp ENTER  &kp RIGHT  &kp H  &hmr LCTRL J    &hmr RSHFT K  &hmr LALT L  &hmr LGUI SEMI  &kp SQT
 &kp LALT     &kp Z        &kp X        &kp C         &kp V         &kp B  &mkp MCLK              &kp DOWN              &kp N  &kp M           &kp COMMA     &kp DOT      &kp FSLH        &kp ENTER
-                                       &kp LGUI      &lt 3 BSPC    &mo 1                                               &mo 2  &spc_layer 3 0  &kp RCTRL
+                                       &kp LGUI      &lt 3 BSPC    &mo 2                                               &mo 1  &spc_layer 3 0  &kp RCTRL
             >;
 
             sensor-bindings = <&scroll_encoder>;
