@@ -3,3 +3,4 @@ zmk/
 modules/
 tools/
 .west/
+config/eyelash_corne.yaml
