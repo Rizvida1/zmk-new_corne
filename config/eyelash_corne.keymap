@@ -155,7 +155,7 @@
 
         combo_ctrl_f {
             timeout-ms = <50>;
-            key-positions = <3 4>; // E + R
+            key-positions = <16 17>; // F + G (Find + Go)
             bindings = <&kp LC(F)>;
             layers = <0>;
         };
@@ -198,6 +198,20 @@
         combo_terminal {
             bindings = <&kp LC(GRAVE)>;
             key-positions = <0 1>;
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        combo_toggle_comment {
+            bindings = <&kp LC(FSLH)>;
+            key-positions = <40 41>; // . + /
+            timeout-ms = <50>;
+            layers = <0>;
+        };
+
+        combo_rename {
+            bindings = <&kp F2>;
+            key-positions = <4 5>; // R + T (Rename + Tag/Type)
             timeout-ms = <50>;
             layers = <0>;
         };
