@@ -16,20 +16,20 @@ layers:
   - $$mdi:keyboard-esc$$
   - '&shift_caps'
   - {t: A, h: LGUI}
-  - {t: S, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: D, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: F, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: S, h: '$$mdi:keyboard-variant$$'}
+  - {t: D, h: '$$mdi:arrow-up-bold$$'}
+  - {t: F, h: '$$mdi:keyboard-variant$$'}
   - G
   - $$mdi:arrow-left-bold$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:arrow-right-bold$$
   - H
-  - {t: J, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: L, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: J, h: '$$mdi:keyboard-variant$$'}
+  - {t: K, h: '$$mdi:arrow-up-bold$$'}
+  - {t: L, h: '$$mdi:keyboard-variant$$'}
   - {t: ;, h: LGUI, s: ':'}
   - {t: '''', s: '"'}
-  - $$mdi:apple-keyboard-option$$
+  - $$mdi:keyboard-variant$$
   - Z
   - X
   - C
@@ -47,8 +47,8 @@ layers:
   - {t: '$$mdi:backspace$$', h: Fn}
   - SYMBOL
   - NUMBER
-  - {t: '$$mdi:keyboard-space$$', h: Fn}
-  - $$mdi:apple-keyboard-control$$
+  - {t: '&spc_dot', h: Fn}
+  - $$mdi:keyboard-variant$$
   NUMBER:
   - Ctl+Alt+$$mdi:backspace-reverse-outline$$
   - {t: '1', s: '!'}
@@ -56,22 +56,22 @@ layers:
   - {t: '3', s: '#'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
-  - $$mdi:skip-previous$$
+  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
   - {t: '6', s: ^}
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
   - {t: '9', s: (}
   - {t: '0', s: )}
-  - INS
+  - {t: '$$mdi:backspace$$', type: backspace}
   - BT CLR ALL
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
   - {h: '3', s: '$$mdi:bluetooth-connect$$'}
   - {h: '4', s: '$$mdi:bluetooth-connect$$'}
   - {h: '5', s: '$$mdi:bluetooth-connect$$'}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - PLAY PAUSE
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
+  - $$mdi:mouse-left-click-outline$$
+  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-up-bold$$
@@ -84,20 +84,20 @@ layers:
   - RGB HUI
   - RGB HUD
   - RGB EFF
-  - {t: Gui+Alt+K, h: 'Ctl+$$mdi:keyboard-space$$'}
-  - $$mdi:skip-next$$
+  - $$mdi:volume-off$$
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - RGB EFR
   - RGB SPI
   - RGB BRI
   - RGB BRD
   - END
   - PG DN
-  - Ctl+$$mdi:keyboard-space$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: INS, type: held}
   - $$mdi:backspace-reverse-outline$$
-  - Alt+$$mdi:keyboard-tab$$
-  - {type: held}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:mouse-right-click-outline$$
   SYMBOL:
   - {t: '$$mdi:transfer$$', type: trans}
   - '!'
@@ -105,7 +105,7 @@ layers:
   - '#'
   - $
   - '%'
-  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - $$mdi:skip-previous$$
   - ^
   - '&'
   - '*'
@@ -118,9 +118,9 @@ layers:
   - $$mdi:mouse-scroll-wheel$$
   - '&mkp MB5'
   - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
-  - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - PLAY PAUSE
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '-', s: _}
   - {t: '=', s: +}
   - {t: '[', s: '{'}
@@ -133,20 +133,20 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - $$mdi:mouse-right-click-outline$$
-  - Alt+Sft+$$mdi:arrow-down-bold$$
-  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
+  - {t: Gui+Alt+K, h: 'Ctl+$$mdi:keyboard-space$$'}
+  - $$mdi:skip-next$$
   - _
   - +
   - '{'
   - '}'
   - '|'
   - '~'
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
+  - Ctl+$$mdi:keyboard-space$$
+  - $$mdi:application$$
+  - {t: '$$mdi:backspace$$', type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - $$mdi:mouse-right-click-outline$$
+  - {t: '$$mdi:transfer$$', type: trans}
   Fn:
   - '&studio_unlock'
   - F1
@@ -164,7 +164,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - '&alt_tab_prev'
-  - '&alt_release'
+  - {t: '$$mdi:transfer$$', type: trans}
   - '&alt_tab'
   - '&mkp MB4'
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
@@ -182,7 +182,7 @@ layers:
   - $$mdi:progress-download$$
   - {t: '$$mdi:transfer$$', type: trans}
   - '&mkp MB5'
-  - {t: Ctl+W, h: Ctl+Sft+T}
+  - {t: '$$mdi:close$$', h: '$$mdi:tab-unselected$$'}
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -191,51 +191,48 @@ layers:
   - SCROLLLOCK
   - PAUSE BREAK
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:backspace$$', type: held}
+  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:keyboard-space$$', type: held alternate}
+  - {type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
 - p: [30, 31]
-  k: Ctl+C
+  k: $$mdi:content-copy$$
   l: [Rizvi]
 - p: [31, 32]
-  k: Ctl+V
+  k: $$mdi:content-paste$$
   l: [Rizvi]
 - p: [30, 32]
-  k: Ctl+X
-  l: [Rizvi]
-- p: [32, 33]
-  k: LGUI(V)
+  k: $$mdi:content-cut$$
   l: [Rizvi]
 - p: [29, 30]
-  k: Ctl+Z
+  k: $$mdi:undo$$
   l: [Rizvi]
 - p: [10, 11]
   k: $$mdi:backspace-reverse-outline$$
   l: [Rizvi]
 - p: [2, 3]
-  k: Ctl+D
+  k: $$mdi:content-duplicate$$
   l: [Rizvi]
 - p: [3, 4]
-  k: Ctl+F
+  k: $$mdi:magnify$$
   l: [Rizvi]
 - p: [2, 4]
-  k: Ctl+Sft+F
+  k: $$mdi:file-search$$
   l: [Rizvi]
 - p: [1, 2]
-  k: Ctl+S
+  k: $$mdi:content-save$$
   l: [Rizvi]
 - p: [10, 9]
-  k: Ctl+I
+  k: $$mdi:robot-happy$$
   l: [Rizvi]
 - p: [1, 3]
-  k: Ctl+A
+  k: $$mdi:select-all$$
   l: [Rizvi]
 - p: [23, 17]
   k: {t: '$$mdi:keyboard-return$$', type: enter}
   l: [Rizvi]
 - p: [0, 1]
-  k: Ctl+`
+  k: $$mdi:console$$
   l: [Rizvi]
