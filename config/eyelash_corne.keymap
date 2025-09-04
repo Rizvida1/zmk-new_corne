@@ -235,8 +235,6 @@
             bindings = <&kt LALT>;
             label = "ALT_RELEASE";
         };
-            label = "ALT_RELEASE";
-        };
     };
 
     keymap {
