@@ -16,20 +16,20 @@ layers:
   - $$mdi:keyboard-esc$$
   - '&shift_caps'
   - {t: A, h: LGUI}
-  - {t: S, h: '$$mdi:keyboard-variant$$'}
+  - {t: S, h: Alt}
   - {t: D, h: '$$mdi:arrow-up-bold$$'}
-  - {t: F, h: '$$mdi:keyboard-variant$$'}
+  - {t: F, h: Ctrl}
   - G
   - $$mdi:arrow-left-bold$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:arrow-right-bold$$
   - H
-  - {t: J, h: '$$mdi:keyboard-variant$$'}
+  - {t: J, h: Ctrl}
   - {t: K, h: '$$mdi:arrow-up-bold$$'}
-  - {t: L, h: '$$mdi:keyboard-variant$$'}
+  - {t: L, h: Alt}
   - {t: ;, h: LGUI, s: ':'}
   - {t: '''', s: '"'}
-  - $$mdi:keyboard-variant$$
+  - Alt
   - Z
   - X
   - C
@@ -47,8 +47,8 @@ layers:
   - {t: '$$mdi:backspace$$', h: Fn}
   - SYMBOL
   - NUMBER
-  - {t: '&spc_dot', h: Fn}
-  - $$mdi:keyboard-variant$$
+  - {t: '$$mdi:keyboard-space$$', h: Fn}
+  - Ctrl
   NUMBER:
   - $$mdi:backup-restore$$
   - {t: '1', s: '!'}
@@ -56,22 +56,22 @@ layers:
   - {t: '3', s: '#'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
-  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - $$mdi:skip-previous$$
   - {t: '6', s: ^}
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
   - {t: '9', s: (}
   - {t: '0', s: )}
-  - {t: '$$mdi:backspace$$', type: backspace}
+  - INS
   - BT CLR ALL
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
   - {h: '3', s: '$$mdi:bluetooth-connect$$'}
   - {h: '4', s: '$$mdi:bluetooth-connect$$'}
   - {h: '5', s: '$$mdi:bluetooth-connect$$'}
-  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
-  - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:play-pause$$
+  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-up-bold$$
@@ -84,20 +84,20 @@ layers:
   - RGB HUI
   - RGB HUD
   - RGB EFF
-  - $$mdi:volume-off$$
-  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
+  - {t: Win+Alt+K, h: '$$mdi:keyboard-space$$'}
+  - $$mdi:skip-next$$
   - RGB EFR
   - RGB SPI
   - RGB BRI
   - RGB BRD
   - END
   - PG DN
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: INS, type: held}
+  - $$mdi:keyboard-space$$
   - $$mdi:backspace-reverse-outline$$
-  - $$mdi:mouse-right-click-outline$$
+  - $$mdi:application$$
+  - {type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   SYMBOL:
   - {t: '$$mdi:transfer$$', type: trans}
   - '!'
@@ -105,7 +105,7 @@ layers:
   - '#'
   - $
   - '%'
-  - $$mdi:skip-previous$$
+  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
   - ^
   - '&'
   - '*'
@@ -118,9 +118,9 @@ layers:
   - $$mdi:mouse-scroll-wheel$$
   - '&mkp MB5'
   - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:play-pause$$
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
+  - $$mdi:mouse-left-click-outline$$
+  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   - {t: '-', s: _}
   - {t: '=', s: +}
   - {t: '[', s: '{'}
@@ -133,20 +133,20 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - $$mdi:mouse-right-click-outline$$
-  - {t: Win+Alt+K, h: '$$mdi:keyboard-space$$'}
-  - $$mdi:skip-next$$
+  - Alt+Sft+$$mdi:arrow-down-bold$$
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - _
   - +
   - '{'
   - '}'
   - '|'
   - '~'
-  - $$mdi:keyboard-space$$
-  - $$mdi:application$$
-  - {t: '$$mdi:backspace$$', type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:mouse-right-click-outline$$
   Fn:
   - '&studio_unlock'
   - F1
@@ -164,7 +164,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - '&alt_tab_prev'
-  - {t: '$$mdi:transfer$$', type: trans}
+  - '&alt_release'
   - '&alt_tab'
   - '&mkp MB4'
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
@@ -191,10 +191,10 @@ layers:
   - SCROLLLOCK
   - PAUSE BREAK
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
+  - {t: '$$mdi:backspace$$', type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held alternate}
+  - {t: '$$mdi:keyboard-space$$', type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
 - p: [30, 31]
@@ -213,7 +213,7 @@ combos:
   k: $$mdi:backspace-reverse-outline$$
   l: [Rizvi]
 - p: [2, 3]
-  k: $$mdi:content-duplicate$$
+  k: $$mdi:selection-multiple$$
   l: [Rizvi]
 - p: [16, 17]
   k: $$mdi:magnify$$
