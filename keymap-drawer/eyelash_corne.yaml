@@ -45,8 +45,8 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - LGUI
   - {t: '$$mdi:backspace$$', h: Fn}
-  - NUMBER
   - SYMBOL
+  - NUMBER
   - {t: '&spc_dot', h: Fn}
   - $$mdi:apple-keyboard-control$$
   NUMBER:
@@ -94,8 +94,8 @@ layers:
   - PG DN
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
-  - INS
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: INS, type: held}
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:mouse-right-click-outline$$
   SYMBOL:
@@ -143,8 +143,8 @@ layers:
   - '~'
   - Ctl+$$mdi:keyboard-space$$
   - Alt+$$mdi:keyboard-tab$$
-  - {t: '$$mdi:backspace$$', type: backspace}
-  - {type: held}
+  - {t: '$$mdi:backspace$$', type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:transfer$$', type: trans}
   Fn:
@@ -230,5 +230,9 @@ combos:
 - p: [1, 3]
   k: Ctl+A
   l: [Rizvi]
-- p: [39, 40]
+- p: [23, 17]
   k: {t: '$$mdi:keyboard-return$$', type: enter}
+  l: [Rizvi]
+- p: [0, 1]
+  k: Ctl+`
+  l: [Rizvi]
