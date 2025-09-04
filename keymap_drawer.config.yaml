@@ -136,25 +136,25 @@ parse_config:
     # Home rows
     "&hm LEFT_GUI A":
       tap: "A"
-      shifted: $$mdi:apple-keyboard-command$$
+      shifted: $$mdi:microsoft-windows$$
     "&hm LEFT_ALT S":
       tap: "S"
-      shifted: $$mdi:apple-keyboard-option$$
+      shifted: $$mdi:keyboard-variant$$
     "&hm LEFT_CONTROL D":
       tap: "D"
-      shifted: $$mdi:apple-keyboard-control$$
+      shifted: $$mdi:keyboard-variant$$
     "&hm LEFT_SHIFT F":
       tap: "F"
-      shifted: $$mdi:apple-keyboard-shift$$
+      shifted: $$mdi:arrow-up-bold$$
     "&hm RIGHT_SHIFT J":
       tap: "J"
-      shifted: $$mdi:apple-keyboard-shift$$
+      shifted: $$mdi:arrow-up-bold$$
     "&hm RIGHT_CONTROL K":
       tap: "K"
-      shifted: $$mdi:apple-keyboard-control$$
+      shifted: $$mdi:keyboard-variant$$
     "&hm RIGHT_ALT L":
       tap: "L"
-      shifted: $$mdi:apple-keyboard-option$$
+      shifted: $$mdi:keyboard-variant$$
     # self behaviors
     "&hm LG(LS(V)) P":
       tap: "P"
@@ -201,7 +201,7 @@ parse_config:
     # Modifiers
     "&caps_word": $$mdi:alpha-w-box$$
     "&kt RSHIFT":
-      tap: $$mdi:apple-keyboard-shift$$
+      tap: $$mdi:arrow-up-bold$$
       hold: $$mdi:toggle-switch$$
 
     # Empty
@@ -391,10 +391,10 @@ parse_config:
       shifted: ")"
 
     # Modifiers
-    LCTRL: $$mdi:apple-keyboard-control$$
+    LCTRL: $$mdi:keyboard-variant$$
     LEFT_CONTROL: $$mdi:keyboard-variant$$
-    LALT: $$mdi:alt$$
-    LEFT_ALT: $$mdi:alt$$
+    LALT: $$mdi:keyboard-variant$$
+    LEFT_ALT: $$mdi:keyboard-variant$$
     LSHIFT: $$mdi:arrow-up-bold$$
     LEFT_SHIFT: $$mdi:arrow-up-bold$$
     LSHFT: $$mdi:arrow-up-bold$$
@@ -404,15 +404,15 @@ parse_config:
     LEFT_COMMAND: $$mdi:microsoft-windows$$
     RCTRL: $$mdi:keyboard-variant$$
     RIGHT_CONTROL: $$mdi:keyboard-variant$$
-    RALT: $$mdi:alt$$
-    RIGHT_ALT: $$mdi:alt$$
+    RALT: $$mdi:keyboard-variant$$
+    RIGHT_ALT: $$mdi:keyboard-variant$$
     RSHIFT: $$mdi:arrow-up-bold$$
     RIGHT_SHIFT: $$mdi:arrow-up-bold$$
     RSHFT: $$mdi:arrow-up-bold$$
     RCMD: $$mdi:microsoft-windows$$
     RG: $$mdi:microsoft-windows$$
     PSCRN: $$mdi:printer-outline$$
-    RIGHT_COMMAND: $$mdi:apple-keyboard-command$$
+    RIGHT_COMMAND: $$mdi:microsoft-windows$$
     PAGE_UP:
       tap: "PgUp"
       shifted: ""
@@ -457,8 +457,8 @@ parse_config:
     DEL: $$mdi:backspace-reverse-outline$$
 
     # Locks
-    CAPSLOCK: $$mdi:apple-keyboard-caps$$
-    CAPS: $$mdi:apple-keyboard-caps$$
+    CAPSLOCK: $$mdi:keyboard-caps$$
+    CAPS: $$mdi:keyboard-caps$$
 
     # Sound
     C_MUTE: $$mdi:volume-off$$
@@ -511,29 +511,29 @@ parse_config:
     C_POWER: $$mdi:power-standby$$
     C_AL_LOCK: $$mdi:lock$$
     K_CANCEL: $$mdi:close-box$$
-    K_FIND: $$mdi:apple-finder$$
+    K_FIND: $$mdi:magnify$$
     # Command +
     LG(A):
       tap: "A"
-      hold: $$mdi:apple-keyboard-command$$
+      hold: $$mdi:microsoft-windows$$
     LG(S):
       tap: "S"
-      hold: $$mdi:apple-keyboard-command$$
+      hold: $$mdi:microsoft-windows$$
     LG(D):
       tap: "D"
-      hold: $$mdi:apple-keyboard-command$$
+      hold: $$mdi:microsoft-windows$$
     LG(F):
       tap: "F"
-      hold: $$mdi:apple-keyboard-command$$
+      hold: $$mdi:microsoft-windows$$
     LG(Z):
       tap: "Z"
-      hold: $$mdi:apple-keyboard-command$$
+      hold: $$mdi:microsoft-windows$$
     LG(X):
       tap: "X"
-      hold: $$mdi:apple-keyboard-command$$
+      hold: $$mdi:microsoft-windows$$
     LG(C):
       tap: "C"
-      hold: $$mdi:apple-keyboard-command$$
+      hold: $$mdi:microsoft-windows$$
     LG(V):
       tap: $$mdi:clipboard-outline$$
       hold: $$mdi:microsoft-windows$$
