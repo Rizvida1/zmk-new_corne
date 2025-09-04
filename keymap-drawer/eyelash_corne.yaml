@@ -47,7 +47,7 @@ layers:
   - {t: '$$mdi:backspace$$', h: Fn}
   - SYMBOL
   - NUMBER
-  - {t: '&spc_dot', h: Fn}
+  - {t: '$$mdi:keyboard-space$$', h: Fn}
   - $$mdi:apple-keyboard-control$$
   NUMBER:
   - Ctl+Alt+$$mdi:backspace-reverse-outline$$
@@ -164,7 +164,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - '&alt_tab_prev'
-  - {t: '$$mdi:transfer$$', type: trans}
+  - '&alt_release'
   - '&alt_tab'
   - '&mkp MB4'
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
