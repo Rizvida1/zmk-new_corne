@@ -15,7 +15,7 @@ layers:
   - P
   - $$mdi:keyboard-esc$$
   - '&shift_caps'
-  - {t: A, h: LGUI}
+  - {t: A, h: '$$mdi:microsoft-windows$$'}
   - {t: S, h: Alt}
   - {t: D, h: '$$mdi:arrow-up-bold$$'}
   - {t: F, h: Ctrl}
@@ -25,9 +25,9 @@ layers:
   - $$mdi:arrow-right-bold$$
   - H
   - {t: J, h: Ctrl}
-  - {t: K, h: '$$mdi:arrow-up-bold$$'}
+  - {t: K, h: RSHFT}
   - {t: L, h: Alt}
-  - {t: ;, h: LGUI, s: ':'}
+  - {t: ;, h: '$$mdi:microsoft-windows$$', s: ':'}
   - {t: '''', s: '"'}
   - Alt
   - Z
@@ -43,7 +43,7 @@ layers:
   - {t: ., s: '>'}
   - {t: /, s: '?'}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - LGUI
+  - $$mdi:microsoft-windows$$
   - {t: '$$mdi:backspace$$', h: Fn}
   - SYMBOL
   - NUMBER
@@ -174,7 +174,7 @@ layers:
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:mouse-right-click-outline$$
-  - PRINTSCREEN
+  - $$mdi:printer-outline$$
   - F12
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:backup-restore$$', type: bootloader}
