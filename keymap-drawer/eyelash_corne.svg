@@ -626,8 +626,8 @@ rect.held, rect.combo.held {
 <use href="#mdi:selection-multiple" xlink:href="#mdi:selection-multiple" x="159" y="22" height="18" width="18.0" class="combo tap glyph mdi:selection-multiple"/>
 </g>
 <g class="combo combopos-6">
-<rect rx="6" ry="6" x="210" y="74" width="28" height="26" class="combo"/>
-<use href="#mdi:magnify" xlink:href="#mdi:magnify" x="215" y="78" height="18" width="18.0" class="combo tap glyph mdi:magnify"/>
+<rect rx="6" ry="6" x="266" y="81" width="28" height="26" class="combo"/>
+<use href="#mdi:magnify" xlink:href="#mdi:magnify" x="271" y="85" height="18" width="18.0" class="combo tap glyph mdi:magnify"/>
 </g>
 <g class="combo combopos-7">
 <path d="M196,35 l-37,0" class="combo"/>
@@ -1130,10 +1130,10 @@ rect.held, rect.combo.held {
 <tspan x="0" dy="-0.6em">OUT</tspan><tspan x="0" dy="1.2em">BLE</tspan>
 </text>
 </g>
-<g transform="translate(196, 140)" class="key keypos-31">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
-<rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;mouse_jig</tspan></text>
+<g transform="translate(196, 140)" class="key none keypos-31">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key none side"/>
+<rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key none"/>
+<use href="#mdi:minus-circle-outline" xlink:href="#mdi:minus-circle-outline" x="-9" y="-13" height="18" width="18.0" class="key none tap glyph mdi:minus-circle-outline"/>
 </g>
 <g transform="translate(252, 147)" class="key none keypos-32">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key none side"/>
