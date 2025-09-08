@@ -130,7 +130,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - OUT USB
   - OUT BLE
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - '&mouse_jig'
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - $$mdi:mouse-right-click-outline$$
   - Alt+Sft+$$mdi:arrow-down-bold$$
@@ -163,9 +163,9 @@ layers:
   - F11
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&alt_tab_prev'
-  - '&alt_release'
-  - '&alt_tab'
+  - $$mdi:keyboard-tab-reverse$$
+  - Alt
+  - $$mdi:keyboard-tab$$
   - '&mkp MB4'
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
   - $$mdi:mouse-left-click-outline$$
