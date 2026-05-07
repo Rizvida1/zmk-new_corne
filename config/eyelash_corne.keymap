@@ -87,6 +87,22 @@
 
             tapping-term-ms = <200>;
         };
+
+        // Symbol layer center joystick: tap=Copy, 2x=Paste, 3x=Cut
+        td_cpv: td_copy_paste_cut {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp LC(C)>, <&kp LC(V)>, <&kp LC(X)>;
+        };
+
+        // Fn layer center joystick: tap=LCLK, 2x=RCLK
+        td_click: td_left_right_click {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&mkp LCLK>, <&mkp RCLK>;
+        };
     };
 
     combos {
@@ -213,8 +229,7 @@
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
-        tap-ms = <50>;  // Reduced for more responsive scrolling (was 100)
+        tap-ms = <30>;
     };
 
   
@@ -249,9 +264,9 @@
         raise_layer {
             display-name = "SYMBOL";
             bindings = <
-&kp LC(LA(DEL))  &kp EXCL      &kp AT        &kp HASH   &kp DLLR  &kp PRCNT                                 &mmv MOVE_UP                 &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&trans           &bt BT_CLR    &mkp MB4      &mkp MCLK  &mkp MB5  &mkp LCLK                 &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT   &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&trans           &out OUT_USB  &out OUT_BLE  &none      &none     &mkp RCLK  &kp LA(LS(DOWN))               &mmv MOVE_DOWN               &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
+&kp LC(LA(DEL))  &kp EXCL      &kp AT        &kp HASH   &kp DLLR  &kp PRCNT                            &kp UP                 &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
+&trans           &bt BT_CLR    &mkp LCLK     &mkp MCLK  &mkp RCLK &mkp MB4             &kp LEFT  &td_cpv  &kp RIGHT   &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
+&trans           &out OUT_USB  &out OUT_BLE  &none      &none     &mkp RCLK  &kp LA(LS(DOWN))               &kp DOWN               &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
                                              &trans     &trans    &trans                                                                 &trans     &kp RET    &mkp RCLK
             >;
 
@@ -262,7 +277,7 @@
             display-name = "Fn";
             bindings = <
 &studio_unlock  &kp F1      &kp F2         &kp F3        &kp F4         &kp F5                                           &mmv MOVE_UP                     &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans          &trans      &kp LS(TAB)    &kp LALT      &kp TAB        &mkp MB4                         &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+&trans          &trans      &kp LS(TAB)    &kp LALT      &kp TAB        &mkp MB4                         &mmv MOVE_LEFT  &td_click       &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
 &trans          &sys_reset  &trans         &bootloader   &trans         &mkp MB5  &mt LC(LS(T)) LC(W)                    &mmv MOVE_DOWN                   &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
                                            &trans        &kp BACKSPACE  &trans                                                                            &trans  &kp SPACE  &trans
             >;
