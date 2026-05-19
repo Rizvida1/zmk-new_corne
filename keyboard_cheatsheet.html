@@ -232,8 +232,12 @@
       }
 
       /* ── Combo mini keyboard ─────────────────────────────── */
-      .combo-mini-kbd .split { gap: 1.5px; }
-      .combo-mini-kbd .row   { gap: 1.5px; }
+      .combo-mini-kbd .split {
+        gap: 1.5px;
+      }
+      .combo-mini-kbd .row {
+        gap: 1.5px;
+      }
       .combo-mini-kbd .key {
         width: 12px;
         height: 10px;
@@ -244,7 +248,9 @@
         padding: 0;
         font-weight: 600;
       }
-      .combo-mini-kbd .key.wide { width: 17px; }
+      .combo-mini-kbd .key.wide {
+        width: 17px;
+      }
       .combo-mini-kbd .key.ghost {
         border: 1px solid #e2e8f0;
         border-bottom-width: 1px;
@@ -252,7 +258,10 @@
         color: #c8d4e0;
         font-weight: 400;
       }
-      .combo-mini-kbd .gap { width: 10px; flex: 0 0 auto; }
+      .combo-mini-kbd .gap {
+        width: 10px;
+        flex: 0 0 auto;
+      }
       .combo-mini-kbd .ck {
         background: #ecfeff;
         border-color: #0e7490;
@@ -271,13 +280,25 @@
       }
 
       /* Colored top accent strip per section */
-      .base.card    { border-top-color: var(--base); }
-      .number.card  { border-top-color: var(--num);  }
-      .symbol.card  { border-top-color: var(--sym);  }
-      .fn.card      { border-top-color: var(--fn);   }
-      .combos.card  { border-top-color: var(--combo);}
+      .base.card {
+        border-top-color: var(--base);
+      }
+      .number.card {
+        border-top-color: var(--num);
+      }
+      .symbol.card {
+        border-top-color: var(--sym);
+      }
+      .fn.card {
+        border-top-color: var(--fn);
+      }
+      .combos.card {
+        border-top-color: var(--combo);
+      }
       .tips.card,
-      .systems.card { border-top-color: #94a3b8;     }
+      .systems.card {
+        border-top-color: #94a3b8;
+      }
 
       .card h2 {
         font-size: 9.5px;
@@ -303,22 +324,44 @@
         font-style: italic;
       }
 
-      .base h2,   .base .mini-title   { color: var(--base);  }
-      .number h2, .number .mini-title { color: var(--num);   }
-      .symbol h2, .symbol .mini-title { color: var(--sym);   }
-      .fn h2,     .fn .mini-title     { color: var(--fn);    }
-      .combos h2                      { color: var(--combo); }
-      .tips h2, .systems h2           { color: var(--tip);   }
+      .base h2,
+      .base .mini-title {
+        color: var(--base);
+      }
+      .number h2,
+      .number .mini-title {
+        color: var(--num);
+      }
+      .symbol h2,
+      .symbol .mini-title {
+        color: var(--sym);
+      }
+      .fn h2,
+      .fn .mini-title {
+        color: var(--fn);
+      }
+      .combos h2 {
+        color: var(--combo);
+      }
+      .tips h2,
+      .systems h2 {
+        color: var(--tip);
+      }
 
       /* Layer cards stretch and distribute space evenly */
-      .base.card, .number.card, .symbol.card, .fn.card {
+      .base.card,
+      .number.card,
+      .symbol.card,
+      .fn.card {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
       }
 
-
-      .split { display: grid; gap: 2px; }
+      .split {
+        display: grid;
+        gap: 2px;
+      }
 
       .row {
         display: flex;
@@ -327,7 +370,10 @@
         gap: 2px;
       }
 
-      .gap { width: 6px; flex: 0 0 auto; }
+      .gap {
+        width: 6px;
+        flex: 0 0 auto;
+      }
 
       /* Base key — white with a thicker bottom edge for keycap depth */
       .key {
@@ -349,9 +395,15 @@
         color: var(--ink);
       }
 
-      .key.wide  { width: 33px; }
-      .key.thumb { width: 37px; }
-      .key.iso   { width: 22px; }
+      .key.wide {
+        width: 33px;
+      }
+      .key.thumb {
+        width: 37px;
+      }
+      .key.iso {
+        width: 22px;
+      }
 
       /* Joystick — purple pill */
       .key.joy {
@@ -406,7 +458,9 @@
       }
 
       /* ── Key label text ──────────────────────────────────── */
-      .tap { font-size: 7.5px; }
+      .tap {
+        font-size: 7.5px;
+      }
 
       .hold {
         font-size: 5.8px;
@@ -415,13 +469,27 @@
       }
 
       /* Tinted hold labels to match key color */
-      .key.mod   .hold { color: #92400e; }
-      .key.layer .hold { color: #14532d; }
-      .key.entry .hold { color: #1e3a8a; }
-      .key.joy   .hold { color: #4c1d95; }
-      .key.alert .hold { color: #991b1b; }
-      .key.ghost .hold { color: #94a3b8; }
-      .key       .hold { color: var(--muted); } /* default */
+      .key.mod .hold {
+        color: #92400e;
+      }
+      .key.layer .hold {
+        color: #14532d;
+      }
+      .key.entry .hold {
+        color: #1e3a8a;
+      }
+      .key.joy .hold {
+        color: #4c1d95;
+      }
+      .key.alert .hold {
+        color: #991b1b;
+      }
+      .key.ghost .hold {
+        color: #94a3b8;
+      }
+      .key .hold {
+        color: var(--muted);
+      } /* default */
 
       /* ── Mini info grids below each layer card ───────────── */
       .mini-grid {
@@ -441,7 +509,10 @@
         font-weight: 800;
       }
 
-      .line-list { display: grid; gap: 2px; }
+      .line-list {
+        display: grid;
+        gap: 2px;
+      }
 
       .line-item {
         display: flex;
@@ -507,27 +578,49 @@
         <div class="legend-box">
           <div class="legend-grid">
             <div class="legend-item">
-              <span class="swatch" style="background:#eff6ff; border-color:#3b82f6"></span>
+              <span
+                class="swatch"
+                style="background: #eff6ff; border-color: #3b82f6"
+              ></span>
               layer activation key (base layer)
             </div>
             <div class="legend-item">
-              <span class="swatch" style="background:#f0fdf4; border-color:#22c55e"></span>
+              <span
+                class="swatch"
+                style="background: #f0fdf4; border-color: #22c55e"
+              ></span>
               held entry key (current layer)
             </div>
             <div class="legend-item">
-              <span class="swatch" style="background:#fffbeb; border-color:#d97706"></span>
+              <span
+                class="swatch"
+                style="background: #fffbeb; border-color: #d97706"
+              ></span>
               dual-role / homerow mod
             </div>
             <div class="legend-item">
-              <span class="swatch" style="background:#f8fafc; border-style:dashed; border-color:#94a3b8"></span>
+              <span
+                class="swatch"
+                style="
+                  background: #f8fafc;
+                  border-style: dashed;
+                  border-color: #94a3b8;
+                "
+              ></span>
               transparent: same as base
             </div>
             <div class="legend-item">
-              <span class="swatch" style="background:#ede9fe; border-color:#8b5cf6"></span>
+              <span
+                class="swatch"
+                style="background: #ede9fe; border-color: #8b5cf6"
+              ></span>
               joystick / pointer
             </div>
             <div class="legend-item">
-              <span class="swatch" style="background:#fef2f2; border-color:#ef4444"></span>
+              <span
+                class="swatch"
+                style="background: #fef2f2; border-color: #ef4444"
+              ></span>
               system / destructive action
             </div>
           </div>
@@ -536,637 +629,714 @@
 
       <div class="body-grid">
         <div class="main-col">
-
-      <div class="layout-grid">
-        <div class="card base">
-          <div class="card-head">
-            <h2>Layer 0 Base</h2>
-            <div class="card-note">default typing layer</div>
-          </div>
-          <div class="split">
-            <div class="row">
-              <div class="key wide"><div class="tap">TAB</div></div>
-              <div class="key"><div class="tap">Q</div></div>
-              <div class="key"><div class="tap">W</div></div>
-              <div class="key"><div class="tap">E</div></div>
-              <div class="key"><div class="tap">R</div></div>
-              <div class="key"><div class="tap">T</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key joy"><div class="tap">UP</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key"><div class="tap">Y</div></div>
-              <div class="key"><div class="tap">U</div></div>
-              <div class="key"><div class="tap">I</div></div>
-              <div class="key"><div class="tap">O</div></div>
-              <div class="key"><div class="tap">P</div></div>
-              <div class="key wide"><div class="tap">ESC</div></div>
-            </div>
-            <div class="row">
-              <div class="key wide mod">
-                <div class="tap">SHIFT</div>
-                <div class="hold">2x CAPS WORD</div>
+          <div class="layout-grid">
+            <div class="card base">
+              <div class="card-head">
+                <h2>Layer 0 Base</h2>
+                <div class="card-note">default typing layer</div>
               </div>
-              <div class="key mod">
-                <div class="tap">A</div>
-                <div class="hold">GUI</div>
-              </div>
-              <div class="key mod">
-                <div class="tap">S</div>
-                <div class="hold">ALT</div>
-              </div>
-              <div class="key mod">
-                <div class="tap">D</div>
-                <div class="hold">SHIFT</div>
-              </div>
-              <div class="key mod">
-                <div class="tap">F</div>
-                <div class="hold">CTRL</div>
-              </div>
-              <div class="key"><div class="tap">G</div></div>
-              <div class="key joy"><div class="tap">LEFT</div></div>
-              <div class="key joy"><div class="tap">ENT</div></div>
-              <div class="key joy"><div class="tap">RIGHT</div></div>
-              <div class="key"><div class="tap">H</div></div>
-              <div class="key mod">
-                <div class="tap">J</div>
-                <div class="hold">CTRL</div>
-              </div>
-              <div class="key mod">
-                <div class="tap">K</div>
-                <div class="hold">SHIFT</div>
-              </div>
-              <div class="key mod">
-                <div class="tap">L</div>
-                <div class="hold">ALT</div>
-              </div>
-              <div class="key mod">
-                <div class="tap">;</div>
-                <div class="hold">GUI</div>
-              </div>
-              <div class="key wide"><div class="tap">'</div></div>
-            </div>
-            <div class="row">
-              <div class="key wide"><div class="tap">ALT</div></div>
-              <div class="key"><div class="tap">Z</div></div>
-              <div class="key"><div class="tap">X</div></div>
-              <div class="key"><div class="tap">C</div></div>
-              <div class="key"><div class="tap">V</div></div>
-              <div class="key"><div class="tap">B</div></div>
-              <div class="key iso" style="width:22px"><div class="tap">MCLK</div></div>
-              <div class="key joy"><div class="tap">DOWN</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key"><div class="tap">N</div></div>
-              <div class="key"><div class="tap">M</div></div>
-              <div class="key"><div class="tap">,</div></div>
-              <div class="key"><div class="tap">.</div></div>
-              <div class="key"><div class="tap">/</div></div>
-              <div class="key wide"><div class="tap">ENTER</div></div>
-            </div>
-            <div class="row">
-              <div class="key thumb"><div class="tap">GUI</div></div>
-              <div class="key thumb entry">
-                <div class="tap">BSPC</div>
-                <div class="hold">ENTRY FN</div>
-              </div>
-              <div class="key thumb entry">
-                <div class="tap">SYM</div>
-                <div class="hold">ENTRY L2</div>
-              </div>
-              <div class="gap"></div>
-              <div class="key thumb entry">
-                <div class="tap">NUM</div>
-                <div class="hold">ENTRY L1</div>
-              </div>
-              <div class="key thumb entry">
-                <div class="tap">SPACE</div>
-                <div class="hold">ENTRY FN</div>
-              </div>
-              <div class="key thumb"><div class="tap">RCTRL</div></div>
-            </div>
-          </div>
-          <div class="mini-grid">
-            <div>
-              <div class="mini-title">Homerow Mods</div>
-              <div class="line-list">
-                <div class="line-item">
-                  <span class="tag">A S D F</span><span>GUI ALT SHIFT CTRL</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">J K L ;</span><span>CTRL SHIFT ALT GUI</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">hold</span><span>&gt; 280 ms triggers modifier</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">quick-tap</span><span>&le; 300 ms repeats the key</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">idle</span><span>150 ms pause before hold can win</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="mini-title">Encoder</div>
-              <div class="line-list">
-                <div class="line-item">
-                  <span class="tag">&#8635;</span><span>scroll down</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">&#8634;</span><span>scroll up</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">side key</span><span>middle click</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card number">
-          <div class="card-head">
-            <h2>Layer 1 Number</h2>
-            <div class="card-note">hold right inner thumb</div>
-          </div>
-          <div class="split">
-            <div class="row">
-              <div class="key wide ghost"><div class="tap">base</div></div>
-              <div class="key"><div class="tap">1</div></div>
-              <div class="key"><div class="tap">2</div></div>
-              <div class="key"><div class="tap">3</div></div>
-              <div class="key"><div class="tap">4</div></div>
-              <div class="key"><div class="tap">5</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key joy"><div class="tap">PREV</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key"><div class="tap">6</div></div>
-              <div class="key"><div class="tap">7</div></div>
-              <div class="key"><div class="tap">8</div></div>
-              <div class="key"><div class="tap">9</div></div>
-              <div class="key"><div class="tap">0</div></div>
-              <div class="key wide"><div class="tap">INS</div></div>
-            </div>
-            <div class="row">
-              <div class="key wide alert"><div class="tap">CLR ALL</div></div>
-              <div class="key"><div class="tap">BT0</div></div>
-              <div class="key"><div class="tap">BT1</div></div>
-              <div class="key"><div class="tap">BT2</div></div>
-              <div class="key"><div class="tap">BT3</div></div>
-              <div class="key"><div class="tap">BT4</div></div>
-              <div class="key joy ghost"><div class="tap">base</div></div>
-              <div class="key joy"><div class="tap">PLAY</div></div>
-              <div class="key joy ghost"><div class="tap">base</div></div>
-              <div class="key"><div class="tap">LEFT</div></div>
-              <div class="key"><div class="tap">DOWN</div></div>
-              <div class="key"><div class="tap">UP</div></div>
-              <div class="key"><div class="tap">RIGHT</div></div>
-              <div class="key"><div class="tap">HOME</div></div>
-              <div class="key wide"><div class="tap">PGUP</div></div>
-            </div>
-            <div class="row">
-              <div class="key wide ghost"><div class="tap">base</div></div>
-              <div class="key"><div class="tap">RGB OFF</div></div>
-              <div class="key"><div class="tap">RGB ON</div></div>
-              <div class="key"><div class="tap">HUE+</div></div>
-              <div class="key"><div class="tap">HUE-</div></div>
-              <div class="key"><div class="tap">FX+</div></div>
-              <div class="key iso" style="width:22px">
-                <div class="tap">C+SPC</div>
-                <div class="hold">⊞+Alt+K</div>
-              </div>
-              <div class="key joy"><div class="tap">NEXT</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key"><div class="tap">FX-</div></div>
-              <div class="key"><div class="tap">SPD+</div></div>
-              <div class="key"><div class="tap">BRI+</div></div>
-              <div class="key"><div class="tap">BRI-</div></div>
-              <div class="key"><div class="tap">END</div></div>
-              <div class="key wide"><div class="tap">PGDN</div></div>
-            </div>
-            <div class="row">
-              <div class="key thumb"><div class="tap">CTRL+SPC</div></div>
-              <div class="key thumb"><div class="tap">DEL</div></div>
-              <div class="key thumb"><div class="tap">ALT+TAB</div></div>
-              <div class="gap"></div>
-              <div class="key thumb layer">
-                <div class="tap">ENTRY</div>
-                <div class="hold">HOLD NUM</div>
-              </div>
-              <div class="key thumb ghost"><div class="tap">base</div></div>
-              <div class="key thumb ghost"><div class="tap">base</div></div>
-            </div>
-          </div>
-          <div class="mini-grid">
-            <div>
-              <div class="mini-title">Encoder &amp; Side Key</div>
-              <div class="line-list">
-                <div class="line-item">
-                  <span class="tag">&#8635;</span><span>volume up</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">&#8634;</span><span>volume down</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">side key tap</span><span>Ctrl+Space — IntelliSense</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">side key hold</span><span>Win+Alt+K — mic mute</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="mini-title">Fast Access</div>
-              <div class="line-list">
-                <div class="line-item">
-                  <span class="tag">joystick</span
-                  ><span>media prev / play / next</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">right side</span
-                  ><span>arrows, home/end, pgup/pgdn</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card symbol">
-          <div class="card-head">
-            <h2>Layer 2 Symbol</h2>
-            <div class="card-note">hold left inner thumb</div>
-          </div>
-          <div class="split">
-            <div class="row">
-              <div class="key wide alert"><div class="tap">CA+Del</div></div>
-              <div class="key"><div class="tap">!</div></div>
-              <div class="key"><div class="tap">@</div></div>
-              <div class="key"><div class="tap">#</div></div>
-              <div class="key"><div class="tap">$</div></div>
-              <div class="key"><div class="tap">%</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key joy"><div class="tap">↑</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key"><div class="tap">^</div></div>
-              <div class="key"><div class="tap">&amp;</div></div>
-              <div class="key"><div class="tap">*</div></div>
-              <div class="key"><div class="tap">(</div></div>
-              <div class="key"><div class="tap">)</div></div>
-              <div class="key wide"><div class="tap">BSPC</div></div>
-            </div>
-            <div class="row">
-              <div class="key wide ghost"><div class="tap">base</div></div>
-              <div class="key alert"><div class="tap">BT CLR</div></div>
-              <div class="key"><div class="tap">LCLK</div></div>
-              <div class="key"><div class="tap">MCLK</div></div>
-              <div class="key"><div class="tap">RCLK</div></div>
-              <div class="key"><div class="tap">Btn 4</div></div>
-              <div class="key joy"><div class="tap">←</div></div>
-              <div class="key joy">
-                <div class="tap">Cpy</div>
-                <div class="hold">Pst/Cut</div>
-              </div>
-              <div class="key joy"><div class="tap">→</div></div>
-              <div class="key"><div class="tap">-</div></div>
-              <div class="key"><div class="tap">=</div></div>
-              <div class="key"><div class="tap">[</div></div>
-              <div class="key"><div class="tap">]</div></div>
-              <div class="key"><div class="tap">\\</div></div>
-              <div class="key wide"><div class="tap">`</div></div>
-            </div>
-            <div class="row">
-              <div class="key wide ghost"><div class="tap">base</div></div>
-              <div class="key"><div class="tap">USB</div></div>
-              <div class="key"><div class="tap">BLE</div></div>
-              <div class="key ghost"><div class="tap">none</div></div>
-              <div class="key ghost"><div class="tap">none</div></div>
-              <div class="key"><div class="tap">RCLK</div></div>
-              <div class="key iso" style="width:22px">
-                <div class="tap">Dup↓</div>
-                <div class="hold">Alt+Sh+↓</div>
-              </div>
-              <div class="key joy"><div class="tap">↓</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key"><div class="tap">_</div></div>
-              <div class="key"><div class="tap">+</div></div>
-              <div class="key"><div class="tap">{</div></div>
-              <div class="key"><div class="tap">}</div></div>
-              <div class="key"><div class="tap">|</div></div>
-              <div class="key wide"><div class="tap">~</div></div>
-            </div>
-            <div class="row">
-              <div class="key thumb ghost"><div class="tap">base</div></div>
-              <div class="key thumb ghost"><div class="tap">base</div></div>
-              <div class="key thumb layer">
-                <div class="tap">ENTRY</div>
-                <div class="hold">HOLD SYM</div>
-              </div>
-              <div class="gap"></div>
-              <div class="key thumb ghost"><div class="tap">base</div></div>
-              <div class="key thumb"><div class="tap">ENTER</div></div>
-              <div class="key thumb"><div class="tap">RCLK</div></div>
-            </div>
-          </div>
-          <div class="mini-grid">
-            <div>
-              <div class="mini-title">Joystick &amp; Mouse</div>
-              <div class="line-list">
-                <div class="line-item">
-                  <span class="tag">↑ ← → ↓</span><span>arrow keys (joystick)</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">center</span><span>tap Copy · 2× Paste · 3× Cut</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">S D F</span
-                  ><span>left / middle / right click</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">G</span><span>mouse button 4</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="mini-title">Encoder &amp; Side Key</div>
-              <div class="line-list">
-                <div class="line-item">
-                  <span class="tag">&#8635;</span><span>move line up (Alt+Up)</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">&#8634;</span><span>move line down (Alt+Down)</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">side key</span><span>duplicate line down (Alt+Shift+Down)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card fn">
-          <div class="card-head">
-            <h2>Layer 3 Fn</h2>
-            <div class="card-note">hold BSPC or SPACE</div>
-          </div>
-          <div class="split">
-            <div class="row">
-              <div class="key wide"><div class="tap">STUDIO</div></div>
-              <div class="key"><div class="tap">F1</div></div>
-              <div class="key"><div class="tap">F2</div></div>
-              <div class="key"><div class="tap">F3</div></div>
-              <div class="key"><div class="tap">F4</div></div>
-              <div class="key"><div class="tap">F5</div></div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key joy">
-                <div class="tap">MOVE</div>
-                <div class="hold">UP</div>
-              </div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key"><div class="tap">F6</div></div>
-              <div class="key"><div class="tap">F7</div></div>
-              <div class="key"><div class="tap">F8</div></div>
-              <div class="key"><div class="tap">F9</div></div>
-              <div class="key"><div class="tap">F10</div></div>
-              <div class="key wide"><div class="tap">F11</div></div>
-            </div>
-            <div class="row">
-              <div class="key wide ghost"><div class="tap">base</div></div>
-              <div class="key ghost"><div class="tap">base</div></div>
-              <div class="key"><div class="tap">Sh+Tab</div></div>
-              <div class="key"><div class="tap">LALT</div></div>
-              <div class="key"><div class="tap">TAB</div></div>
-              <div class="key"><div class="tap">Btn 4</div></div>
-              <div class="key joy">
-                <div class="tap">MOVE</div>
-                <div class="hold">LEFT</div>
-              </div>
-              <div class="key joy">
-                <div class="tap">LClk</div>
-                <div class="hold">2×RClk</div>
-              </div>
-              <div class="key joy">
-                <div class="tap">MOVE</div>
-                <div class="hold">RIGHT</div>
-              </div>
-              <div class="key ghost"><div class="tap">base</div></div>
-              <div class="key"><div class="tap">LCLK</div></div>
-              <div class="key"><div class="tap">MCLK</div></div>
-              <div class="key"><div class="tap">RCLK</div></div>
-              <div class="key"><div class="tap">PRTSC</div></div>
-              <div class="key wide"><div class="tap">F12</div></div>
-            </div>
-            <div class="row">
-              <div class="key wide ghost"><div class="tap">base</div></div>
-              <div class="key alert"><div class="tap">RESET</div></div>
-              <div class="key ghost"><div class="tap">base</div></div>
-              <div class="key alert"><div class="tap">BOOT</div></div>
-              <div class="key ghost"><div class="tap">base</div></div>
-              <div class="key"><div class="tap">Btn 5</div></div>
-              <div class="key iso" style="width:22px">
-                <div class="tap">Close Tab</div>
-                <div class="hold">Reopen</div>
-              </div>
-              <div class="key joy">
-                <div class="tap">MOVE</div>
-                <div class="hold">DOWN</div>
-              </div>
-              <div class="gap" style="width:22px"></div>
-              <div class="key ghost"><div class="tap">base</div></div>
-              <div class="key ghost"><div class="tap">base</div></div>
-              <div class="key alert"><div class="tap">BOOT</div></div>
-              <div class="key alert"><div class="tap">RESET</div></div>
-              <div class="key"><div class="tap">SCRLK</div></div>
-              <div class="key wide"><div class="tap">PAUSE</div></div>
-            </div>
-            <div class="row">
-              <div class="key thumb ghost"><div class="tap">base</div></div>
-              <div class="key thumb layer"><div class="tap">BSPC</div></div>
-              <div class="key thumb ghost"><div class="tap">base</div></div>
-              <div class="gap"></div>
-              <div class="key thumb ghost"><div class="tap">base</div></div>
-              <div class="key thumb layer"><div class="tap">SPACE</div></div>
-              <div class="key thumb ghost"><div class="tap">base</div></div>
-            </div>
-          </div>
-          <div class="mini-grid">
-            <div>
-              <div class="mini-title">Encoder &amp; Side Key</div>
-              <div class="line-list">
-                <div class="line-item">
-                  <span class="tag">&#8635;</span><span>next tab (Ctrl+Tab)</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">&#8634;</span><span>prev tab (Ctrl+Shift+Tab)</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">side key tap</span><span>Close Tab (Ctrl+W)</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">side key hold</span><span>Reopen (Ctrl+Shift+T)</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">joy center</span><span>tap LCLK · 2× RCLK</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="mini-title">Useful Systems</div>
-              <div class="line-list">
-                <div class="line-item">
-                  <span class="tag">TAB</span><span>ZMK Studio unlock</span>
-                </div>
-                <div class="line-item">
-                  <span class="tag">Z/C, ,/.</span
-                  ><span>bootloader / reset (left: Z=reset, C=boot · right: ,=boot, .=reset)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bottom-grid">
-        <div class="card combos">
-          <div class="card-head">
-            <h2>Combos</h2>
-            <div class="card-note">all on layer 0 · highlighted = combo keys</div>
-          </div>
-          <div class="combo-quick" style="display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start">
-            <div class="combo-track">
-              <div class="combo-lane">
-                <div class="combo-label">Top row</div>
-                <div class="combo-chain">
-                  <span class="combo-chip">TAB+Q</span><span class="combo-action">terminal</span>
-                  <span class="combo-chip">Q+W</span><span class="combo-action">save</span>
-                  <span class="combo-chip">Q+E</span><span class="combo-action">select all</span>
-                  <span class="combo-chip">W+E</span><span class="combo-action">add next</span>
-                  <span class="combo-chip">W+R</span><span class="combo-action">find files</span>
-                  <span class="combo-chip">R+T</span><span class="combo-action">rename</span>
-                </div>
-              </div>
-              <div class="combo-lane">
-                <div class="combo-label">Home row</div>
-                <div class="combo-chain">
-                  <span class="combo-chip">F+G</span><span class="combo-action">find</span>
-                  <span class="combo-chip">F+J</span><span class="combo-action">enter</span>
-                </div>
-              </div>
-              <div class="combo-lane">
-                <div class="combo-label">Right top</div>
-                <div class="combo-chain">
-                  <span class="combo-chip">I+O</span><span class="combo-action">copilot inline</span>
-                  <span class="combo-chip">O+P</span><span class="combo-action">delete</span>
-                </div>
-              </div>
-              <div class="combo-lane">
-                <div class="combo-label">Bottom</div>
-                <div class="combo-chain">
-                  <span class="combo-chip">Z+X</span><span class="combo-action">undo</span>
-                  <span class="combo-chip">X+C</span><span class="combo-action">copy</span>
-                  <span class="combo-chip">X+V</span><span class="combo-action">cut</span>
-                  <span class="combo-chip">C+V</span><span class="combo-action">paste</span>
-                  <span class="combo-chip">.+/</span><span class="combo-action">comment</span>
-                  <span class="combo-chip">Q+S+Z</span><span class="combo-action">soft off</span>
-                </div>
-              </div>
-            </div>
-            <div class="combo-mini-kbd">
               <div class="split">
                 <div class="row">
-                  <div class="key wide ck"><div class="tap">TAB</div></div>
-                  <div class="key ck"><div class="tap">Q</div></div>
-                  <div class="key ck"><div class="tap">W</div></div>
-                  <div class="key ck"><div class="tap">E</div></div>
-                  <div class="key ck"><div class="tap">R</div></div>
-                  <div class="key ck"><div class="tap">T</div></div>
-                  <div class="gap"></div>
-                  <div class="key ghost"><div class="tap">Y</div></div>
-                  <div class="key ghost"><div class="tap">U</div></div>
-                  <div class="key ck"><div class="tap">I</div></div>
-                  <div class="key ck"><div class="tap">O</div></div>
-                  <div class="key ck"><div class="tap">P</div></div>
-                  <div class="key wide ghost"><div class="tap">ESC</div></div>
+                  <div class="key wide"><div class="tap">TAB</div></div>
+                  <div class="key"><div class="tap">Q</div></div>
+                  <div class="key"><div class="tap">W</div></div>
+                  <div class="key"><div class="tap">E</div></div>
+                  <div class="key"><div class="tap">R</div></div>
+                  <div class="key"><div class="tap">T</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key joy"><div class="tap">UP</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key"><div class="tap">Y</div></div>
+                  <div class="key"><div class="tap">U</div></div>
+                  <div class="key"><div class="tap">I</div></div>
+                  <div class="key"><div class="tap">O</div></div>
+                  <div class="key"><div class="tap">P</div></div>
+                  <div class="key wide"><div class="tap">ESC</div></div>
                 </div>
                 <div class="row">
-                  <div class="key wide ghost"><div class="tap">SHF</div></div>
-                  <div class="key ghost"><div class="tap">A</div></div>
-                  <div class="key ck"><div class="tap">S</div></div>
-                  <div class="key ghost"><div class="tap">D</div></div>
-                  <div class="key ck"><div class="tap">F</div></div>
-                  <div class="key ck"><div class="tap">G</div></div>
-                  <div class="gap"></div>
-                  <div class="key ghost"><div class="tap">H</div></div>
-                  <div class="key ck"><div class="tap">J</div></div>
-                  <div class="key ghost"><div class="tap">K</div></div>
-                  <div class="key ghost"><div class="tap">L</div></div>
-                  <div class="key ghost"><div class="tap">;</div></div>
-                  <div class="key wide ghost"><div class="tap">'</div></div>
+                  <div class="key wide mod">
+                    <div class="tap">SHIFT</div>
+                    <div class="hold">2x CAPS WORD</div>
+                  </div>
+                  <div class="key mod">
+                    <div class="tap">A</div>
+                    <div class="hold">GUI</div>
+                  </div>
+                  <div class="key mod">
+                    <div class="tap">S</div>
+                    <div class="hold">ALT</div>
+                  </div>
+                  <div class="key mod">
+                    <div class="tap">D</div>
+                    <div class="hold">SHIFT</div>
+                  </div>
+                  <div class="key mod">
+                    <div class="tap">F</div>
+                    <div class="hold">CTRL</div>
+                  </div>
+                  <div class="key"><div class="tap">G</div></div>
+                  <div class="key joy"><div class="tap">LEFT</div></div>
+                  <div class="key joy"><div class="tap">ENT</div></div>
+                  <div class="key joy"><div class="tap">RIGHT</div></div>
+                  <div class="key"><div class="tap">H</div></div>
+                  <div class="key mod">
+                    <div class="tap">J</div>
+                    <div class="hold">CTRL</div>
+                  </div>
+                  <div class="key mod">
+                    <div class="tap">K</div>
+                    <div class="hold">SHIFT</div>
+                  </div>
+                  <div class="key mod">
+                    <div class="tap">L</div>
+                    <div class="hold">ALT</div>
+                  </div>
+                  <div class="key mod">
+                    <div class="tap">;</div>
+                    <div class="hold">GUI</div>
+                  </div>
+                  <div class="key wide"><div class="tap">'</div></div>
                 </div>
                 <div class="row">
-                  <div class="key wide ghost"><div class="tap">ALT</div></div>
-                  <div class="key ck"><div class="tap">Z</div></div>
-                  <div class="key ck"><div class="tap">X</div></div>
-                  <div class="key ck"><div class="tap">C</div></div>
-                  <div class="key ck"><div class="tap">V</div></div>
-                  <div class="key ghost"><div class="tap">B</div></div>
+                  <div class="key wide"><div class="tap">ALT</div></div>
+                  <div class="key"><div class="tap">Z</div></div>
+                  <div class="key"><div class="tap">X</div></div>
+                  <div class="key"><div class="tap">C</div></div>
+                  <div class="key"><div class="tap">V</div></div>
+                  <div class="key"><div class="tap">B</div></div>
+                  <div class="key iso" style="width: 22px">
+                    <div class="tap">MCLK</div>
+                  </div>
+                  <div class="key joy"><div class="tap">DOWN</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key"><div class="tap">N</div></div>
+                  <div class="key"><div class="tap">M</div></div>
+                  <div class="key"><div class="tap">,</div></div>
+                  <div class="key"><div class="tap">.</div></div>
+                  <div class="key"><div class="tap">/</div></div>
+                  <div class="key wide"><div class="tap">ENTER</div></div>
+                </div>
+                <div class="row">
+                  <div class="key thumb"><div class="tap">GUI</div></div>
+                  <div class="key thumb entry">
+                    <div class="tap">BSPC</div>
+                    <div class="hold">ENTRY FN</div>
+                  </div>
+                  <div class="key thumb entry">
+                    <div class="tap">SYM</div>
+                    <div class="hold">ENTRY L2</div>
+                  </div>
                   <div class="gap"></div>
-                  <div class="key ghost"><div class="tap">N</div></div>
-                  <div class="key ghost"><div class="tap">M</div></div>
-                  <div class="key ghost"><div class="tap">,</div></div>
-                  <div class="key ck"><div class="tap">.</div></div>
-                  <div class="key ck"><div class="tap">/</div></div>
-                  <div class="key wide ghost"><div class="tap">ENT</div></div>
+                  <div class="key thumb entry">
+                    <div class="tap">NUM</div>
+                    <div class="hold">ENTRY L1</div>
+                  </div>
+                  <div class="key thumb entry">
+                    <div class="tap">SPACE</div>
+                    <div class="hold">ENTRY FN</div>
+                  </div>
+                  <div class="key thumb"><div class="tap">RCTRL</div></div>
+                </div>
+              </div>
+              <div class="mini-grid">
+                <div>
+                  <div class="mini-title">Homerow Mods</div>
+                  <div class="line-list">
+                    <div class="line-item">
+                      <span class="tag">A S D F</span
+                      ><span>GUI ALT SHIFT CTRL</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">J K L ;</span
+                      ><span>CTRL SHIFT ALT GUI</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">hold</span
+                      ><span>&gt; 280 ms triggers modifier</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">quick-tap</span
+                      ><span>&le; 300 ms repeats the key</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">idle</span
+                      ><span>150 ms pause before hold can win</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mini-title">Encoder</div>
+                  <div class="line-list">
+                    <div class="line-item">
+                      <span class="tag">&#8635;</span><span>scroll down</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">&#8634;</span><span>scroll up</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">side key</span><span>middle click</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card number">
+              <div class="card-head">
+                <h2>Layer 1 Number</h2>
+                <div class="card-note">hold right inner thumb</div>
+              </div>
+              <div class="split">
+                <div class="row">
+                  <div class="key wide ghost"><div class="tap">base</div></div>
+                  <div class="key"><div class="tap">1</div></div>
+                  <div class="key"><div class="tap">2</div></div>
+                  <div class="key"><div class="tap">3</div></div>
+                  <div class="key"><div class="tap">4</div></div>
+                  <div class="key"><div class="tap">5</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key joy"><div class="tap">PREV</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key"><div class="tap">6</div></div>
+                  <div class="key"><div class="tap">7</div></div>
+                  <div class="key"><div class="tap">8</div></div>
+                  <div class="key"><div class="tap">9</div></div>
+                  <div class="key"><div class="tap">0</div></div>
+                  <div class="key wide"><div class="tap">INS</div></div>
+                </div>
+                <div class="row">
+                  <div class="key wide alert">
+                    <div class="tap">CLR ALL</div>
+                  </div>
+                  <div class="key"><div class="tap">BT0</div></div>
+                  <div class="key"><div class="tap">BT1</div></div>
+                  <div class="key"><div class="tap">BT2</div></div>
+                  <div class="key"><div class="tap">BT3</div></div>
+                  <div class="key"><div class="tap">BT4</div></div>
+                  <div class="key joy ghost"><div class="tap">base</div></div>
+                  <div class="key joy"><div class="tap">PLAY</div></div>
+                  <div class="key joy ghost"><div class="tap">base</div></div>
+                  <div class="key"><div class="tap">LEFT</div></div>
+                  <div class="key"><div class="tap">DOWN</div></div>
+                  <div class="key"><div class="tap">UP</div></div>
+                  <div class="key"><div class="tap">RIGHT</div></div>
+                  <div class="key"><div class="tap">HOME</div></div>
+                  <div class="key wide"><div class="tap">PGUP</div></div>
+                </div>
+                <div class="row">
+                  <div class="key wide ghost"><div class="tap">base</div></div>
+                  <div class="key"><div class="tap">RGB OFF</div></div>
+                  <div class="key"><div class="tap">RGB ON</div></div>
+                  <div class="key"><div class="tap">HUE+</div></div>
+                  <div class="key"><div class="tap">HUE-</div></div>
+                  <div class="key"><div class="tap">FX+</div></div>
+                  <div class="key iso" style="width: 22px">
+                    <div class="tap">C+SPC</div>
+                    <div class="hold">⊞+Alt+K</div>
+                  </div>
+                  <div class="key joy"><div class="tap">NEXT</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key"><div class="tap">FX-</div></div>
+                  <div class="key"><div class="tap">SPD+</div></div>
+                  <div class="key"><div class="tap">BRI+</div></div>
+                  <div class="key"><div class="tap">BRI-</div></div>
+                  <div class="key"><div class="tap">END</div></div>
+                  <div class="key wide"><div class="tap">PGDN</div></div>
+                </div>
+                <div class="row">
+                  <div class="key thumb"><div class="tap">CTRL+SPC</div></div>
+                  <div class="key thumb"><div class="tap">DEL</div></div>
+                  <div class="key thumb"><div class="tap">ALT+TAB</div></div>
+                  <div class="gap"></div>
+                  <div class="key thumb layer">
+                    <div class="tap">ENTRY</div>
+                    <div class="hold">HOLD NUM</div>
+                  </div>
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                </div>
+              </div>
+              <div class="mini-grid">
+                <div>
+                  <div class="mini-title">Encoder &amp; Side Key</div>
+                  <div class="line-list">
+                    <div class="line-item">
+                      <span class="tag">&#8635;</span><span>volume up</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">&#8634;</span><span>volume down</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">side key tap</span
+                      ><span>Ctrl+Space — IntelliSense</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">side key hold</span
+                      ><span>Win+Alt+K — mic mute</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mini-title">Fast Access</div>
+                  <div class="line-list">
+                    <div class="line-item">
+                      <span class="tag">joystick</span
+                      ><span>media prev / play / next</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">right side</span
+                      ><span>arrows, home/end, pgup/pgdn</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card symbol">
+              <div class="card-head">
+                <h2>Layer 2 Symbol</h2>
+                <div class="card-note">hold left inner thumb</div>
+              </div>
+              <div class="split">
+                <div class="row">
+                  <div class="key wide alert">
+                    <div class="tap">CA+Del</div>
+                  </div>
+                  <div class="key"><div class="tap">!</div></div>
+                  <div class="key"><div class="tap">@</div></div>
+                  <div class="key"><div class="tap">#</div></div>
+                  <div class="key"><div class="tap">$</div></div>
+                  <div class="key"><div class="tap">%</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key joy"><div class="tap">↑</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key"><div class="tap">^</div></div>
+                  <div class="key"><div class="tap">&amp;</div></div>
+                  <div class="key"><div class="tap">*</div></div>
+                  <div class="key"><div class="tap">(</div></div>
+                  <div class="key"><div class="tap">)</div></div>
+                  <div class="key wide"><div class="tap">BSPC</div></div>
+                </div>
+                <div class="row">
+                  <div class="key wide ghost"><div class="tap">base</div></div>
+                  <div class="key alert"><div class="tap">BT CLR</div></div>
+                  <div class="key"><div class="tap">LCLK</div></div>
+                  <div class="key"><div class="tap">MCLK</div></div>
+                  <div class="key"><div class="tap">RCLK</div></div>
+                  <div class="key"><div class="tap">Btn 4</div></div>
+                  <div class="key joy"><div class="tap">←</div></div>
+                  <div class="key joy">
+                    <div class="tap">Cpy</div>
+                    <div class="hold">Pst/Cut</div>
+                  </div>
+                  <div class="key joy"><div class="tap">→</div></div>
+                  <div class="key"><div class="tap">-</div></div>
+                  <div class="key"><div class="tap">=</div></div>
+                  <div class="key"><div class="tap">[</div></div>
+                  <div class="key"><div class="tap">]</div></div>
+                  <div class="key"><div class="tap">\\</div></div>
+                  <div class="key wide"><div class="tap">`</div></div>
+                </div>
+                <div class="row">
+                  <div class="key wide ghost"><div class="tap">base</div></div>
+                  <div class="key"><div class="tap">USB</div></div>
+                  <div class="key"><div class="tap">BLE</div></div>
+                  <div class="key ghost"><div class="tap">none</div></div>
+                  <div class="key ghost"><div class="tap">none</div></div>
+                  <div class="key"><div class="tap">RCLK</div></div>
+                  <div class="key iso" style="width: 22px">
+                    <div class="tap">Dup↓</div>
+                    <div class="hold">Alt+Sh+↓</div>
+                  </div>
+                  <div class="key joy"><div class="tap">↓</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key"><div class="tap">_</div></div>
+                  <div class="key"><div class="tap">+</div></div>
+                  <div class="key"><div class="tap">{</div></div>
+                  <div class="key"><div class="tap">}</div></div>
+                  <div class="key"><div class="tap">|</div></div>
+                  <div class="key wide"><div class="tap">~</div></div>
+                </div>
+                <div class="row">
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                  <div class="key thumb layer">
+                    <div class="tap">ENTRY</div>
+                    <div class="hold">HOLD SYM</div>
+                  </div>
+                  <div class="gap"></div>
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                  <div class="key thumb"><div class="tap">ENTER</div></div>
+                  <div class="key thumb"><div class="tap">RCLK</div></div>
+                </div>
+              </div>
+              <div class="mini-grid">
+                <div>
+                  <div class="mini-title">Joystick &amp; Mouse</div>
+                  <div class="line-list">
+                    <div class="line-item">
+                      <span class="tag">↑ ← → ↓</span
+                      ><span>arrow keys (joystick)</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">center</span
+                      ><span>tap Copy · 2× Paste · 3× Cut</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">S D F</span
+                      ><span>left / middle / right click</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">G</span><span>mouse button 4</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mini-title">Encoder &amp; Side Key</div>
+                  <div class="line-list">
+                    <div class="line-item">
+                      <span class="tag">&#8635;</span
+                      ><span>move line up (Alt+Up)</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">&#8634;</span
+                      ><span>move line down (Alt+Down)</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">side key</span
+                      ><span>duplicate line down (Alt+Shift+Down)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card fn">
+              <div class="card-head">
+                <h2>Layer 3 Fn</h2>
+                <div class="card-note">hold BSPC or SPACE</div>
+              </div>
+              <div class="split">
+                <div class="row">
+                  <div class="key wide"><div class="tap">STUDIO</div></div>
+                  <div class="key"><div class="tap">F1</div></div>
+                  <div class="key"><div class="tap">F2</div></div>
+                  <div class="key"><div class="tap">F3</div></div>
+                  <div class="key"><div class="tap">F4</div></div>
+                  <div class="key"><div class="tap">F5</div></div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key joy">
+                    <div class="tap">MOVE</div>
+                    <div class="hold">UP</div>
+                  </div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key"><div class="tap">F6</div></div>
+                  <div class="key"><div class="tap">F7</div></div>
+                  <div class="key"><div class="tap">F8</div></div>
+                  <div class="key"><div class="tap">F9</div></div>
+                  <div class="key"><div class="tap">F10</div></div>
+                  <div class="key wide"><div class="tap">F11</div></div>
+                </div>
+                <div class="row">
+                  <div class="key wide ghost"><div class="tap">base</div></div>
+                  <div class="key ghost"><div class="tap">base</div></div>
+                  <div class="key"><div class="tap">Sh+Tab</div></div>
+                  <div class="key"><div class="tap">LALT</div></div>
+                  <div class="key"><div class="tap">TAB</div></div>
+                  <div class="key"><div class="tap">Btn 4</div></div>
+                  <div class="key joy">
+                    <div class="tap">MOVE</div>
+                    <div class="hold">LEFT</div>
+                  </div>
+                  <div class="key joy">
+                    <div class="tap">LClk</div>
+                    <div class="hold">2×RClk</div>
+                  </div>
+                  <div class="key joy">
+                    <div class="tap">MOVE</div>
+                    <div class="hold">RIGHT</div>
+                  </div>
+                  <div class="key ghost"><div class="tap">base</div></div>
+                  <div class="key"><div class="tap">LCLK</div></div>
+                  <div class="key"><div class="tap">MCLK</div></div>
+                  <div class="key"><div class="tap">RCLK</div></div>
+                  <div class="key"><div class="tap">PRTSC</div></div>
+                  <div class="key wide"><div class="tap">F12</div></div>
+                </div>
+                <div class="row">
+                  <div class="key wide ghost"><div class="tap">base</div></div>
+                  <div class="key alert"><div class="tap">RESET</div></div>
+                  <div class="key ghost"><div class="tap">base</div></div>
+                  <div class="key alert"><div class="tap">BOOT</div></div>
+                  <div class="key ghost"><div class="tap">base</div></div>
+                  <div class="key"><div class="tap">Btn 5</div></div>
+                  <div class="key iso" style="width: 22px">
+                    <div class="tap">Close Tab</div>
+                    <div class="hold">Reopen</div>
+                  </div>
+                  <div class="key joy">
+                    <div class="tap">MOVE</div>
+                    <div class="hold">DOWN</div>
+                  </div>
+                  <div class="gap" style="width: 22px"></div>
+                  <div class="key ghost"><div class="tap">base</div></div>
+                  <div class="key ghost"><div class="tap">base</div></div>
+                  <div class="key alert"><div class="tap">BOOT</div></div>
+                  <div class="key alert"><div class="tap">RESET</div></div>
+                  <div class="key"><div class="tap">SCRLK</div></div>
+                  <div class="key wide"><div class="tap">PAUSE</div></div>
+                </div>
+                <div class="row">
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                  <div class="key thumb layer"><div class="tap">BSPC</div></div>
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                  <div class="gap"></div>
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                  <div class="key thumb layer">
+                    <div class="tap">SPACE</div>
+                  </div>
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                </div>
+              </div>
+              <div class="mini-grid">
+                <div>
+                  <div class="mini-title">Encoder &amp; Side Key</div>
+                  <div class="line-list">
+                    <div class="line-item">
+                      <span class="tag">&#8635;</span
+                      ><span>next tab (Ctrl+Tab)</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">&#8634;</span
+                      ><span>prev tab (Ctrl+Shift+Tab)</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">side key tap</span
+                      ><span>Close Tab (Ctrl+W)</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">side key hold</span
+                      ><span>Reopen (Ctrl+Shift+T)</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">joy center</span
+                      ><span>tap LCLK · 2× RCLK</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mini-title">Useful Systems</div>
+                  <div class="line-list">
+                    <div class="line-item">
+                      <span class="tag">TAB</span><span>ZMK Studio unlock</span>
+                    </div>
+                    <div class="line-item">
+                      <span class="tag">Z/C, ,/.</span
+                      ><span
+                        >bootloader / reset (left: Z=reset, C=boot · right:
+                        ,=boot, .=reset)</span
+                      >
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="card systems">
-          <div class="card-head">
-            <h2>Connectivity &amp; RGB</h2>
+          <div class="bottom-grid">
+            <div class="card combos">
+              <div class="card-head">
+                <h2>Combos</h2>
+                <div class="card-note">
+                  all on layer 0 · highlighted = combo keys
+                </div>
+              </div>
+              <div
+                class="combo-quick"
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr auto;
+                  gap: 8px;
+                  align-items: start;
+                "
+              >
+                <div class="combo-track">
+                  <div class="combo-lane">
+                    <div class="combo-label">Top row</div>
+                    <div class="combo-chain">
+                      <span class="combo-chip">TAB+Q</span
+                      ><span class="combo-action">terminal</span>
+                      <span class="combo-chip">Q+W</span
+                      ><span class="combo-action">save</span>
+                      <span class="combo-chip">Q+E</span
+                      ><span class="combo-action">select all</span>
+                      <span class="combo-chip">W+E</span
+                      ><span class="combo-action">add next</span>
+                      <span class="combo-chip">W+R</span
+                      ><span class="combo-action">find files</span>
+                      <span class="combo-chip">R+T</span
+                      ><span class="combo-action">rename</span>
+                    </div>
+                  </div>
+                  <div class="combo-lane">
+                    <div class="combo-label">Home row</div>
+                    <div class="combo-chain">
+                      <span class="combo-chip">F+G</span
+                      ><span class="combo-action">find</span>
+                      <span class="combo-chip">F+J</span
+                      ><span class="combo-action">enter</span>
+                    </div>
+                  </div>
+                  <div class="combo-lane">
+                    <div class="combo-label">Right top</div>
+                    <div class="combo-chain">
+                      <span class="combo-chip">I+O</span
+                      ><span class="combo-action">copilot inline</span>
+                      <span class="combo-chip">O+P</span
+                      ><span class="combo-action">delete</span>
+                    </div>
+                  </div>
+                  <div class="combo-lane">
+                    <div class="combo-label">Bottom</div>
+                    <div class="combo-chain">
+                      <span class="combo-chip">Z+X</span
+                      ><span class="combo-action">undo</span>
+                      <span class="combo-chip">X+C</span
+                      ><span class="combo-action">copy</span>
+                      <span class="combo-chip">X+V</span
+                      ><span class="combo-action">cut</span>
+                      <span class="combo-chip">C+V</span
+                      ><span class="combo-action">paste</span>
+                      <span class="combo-chip">.+/</span
+                      ><span class="combo-action">comment</span>
+                      <span class="combo-chip">Q+S+Z</span
+                      ><span class="combo-action">soft off</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="combo-mini-kbd">
+                  <div class="split">
+                    <div class="row">
+                      <div class="key wide ck"><div class="tap">TAB</div></div>
+                      <div class="key ck"><div class="tap">Q</div></div>
+                      <div class="key ck"><div class="tap">W</div></div>
+                      <div class="key ck"><div class="tap">E</div></div>
+                      <div class="key ck"><div class="tap">R</div></div>
+                      <div class="key ck"><div class="tap">T</div></div>
+                      <div class="gap"></div>
+                      <div class="key ghost"><div class="tap">Y</div></div>
+                      <div class="key ghost"><div class="tap">U</div></div>
+                      <div class="key ck"><div class="tap">I</div></div>
+                      <div class="key ck"><div class="tap">O</div></div>
+                      <div class="key ck"><div class="tap">P</div></div>
+                      <div class="key wide ghost">
+                        <div class="tap">ESC</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="key wide ghost">
+                        <div class="tap">SHF</div>
+                      </div>
+                      <div class="key ghost"><div class="tap">A</div></div>
+                      <div class="key ck"><div class="tap">S</div></div>
+                      <div class="key ghost"><div class="tap">D</div></div>
+                      <div class="key ck"><div class="tap">F</div></div>
+                      <div class="key ck"><div class="tap">G</div></div>
+                      <div class="gap"></div>
+                      <div class="key ghost"><div class="tap">H</div></div>
+                      <div class="key ck"><div class="tap">J</div></div>
+                      <div class="key ghost"><div class="tap">K</div></div>
+                      <div class="key ghost"><div class="tap">L</div></div>
+                      <div class="key ghost"><div class="tap">;</div></div>
+                      <div class="key wide ghost"><div class="tap">'</div></div>
+                    </div>
+                    <div class="row">
+                      <div class="key wide ghost">
+                        <div class="tap">ALT</div>
+                      </div>
+                      <div class="key ck"><div class="tap">Z</div></div>
+                      <div class="key ck"><div class="tap">X</div></div>
+                      <div class="key ck"><div class="tap">C</div></div>
+                      <div class="key ck"><div class="tap">V</div></div>
+                      <div class="key ghost"><div class="tap">B</div></div>
+                      <div class="gap"></div>
+                      <div class="key ghost"><div class="tap">N</div></div>
+                      <div class="key ghost"><div class="tap">M</div></div>
+                      <div class="key ghost"><div class="tap">,</div></div>
+                      <div class="key ck"><div class="tap">.</div></div>
+                      <div class="key ck"><div class="tap">/</div></div>
+                      <div class="key wide ghost">
+                        <div class="tap">ENT</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card systems">
+              <div class="card-head">
+                <h2>Connectivity &amp; RGB</h2>
+              </div>
+              <div class="line-list">
+                <div class="line-item">
+                  <span class="tag">BT profiles</span
+                  ><span
+                    >Layer 1 home row &mdash; BT0&ndash;BT4; clear-all on left
+                    pinky</span
+                  >
+                </div>
+                <div class="line-item">
+                  <span class="tag">BT clear</span
+                  ><span>Layer 2, A position (BT CLR)</span>
+                </div>
+                <div class="line-item">
+                  <span class="tag">USB / BLE</span
+                  ><span>Layer 2 &mdash; Z = USB, X = BLE</span>
+                </div>
+                <div class="line-item">
+                  <span class="tag">RGB</span
+                  ><span
+                    >Layer 1 bottom-left &mdash; on/off, hue&plusmn;,
+                    effect&plusmn;, speed&plusmn;, brightness&plusmn;</span
+                  >
+                </div>
+                <div class="line-item">
+                  <span class="tag">Shift key</span
+                  ><span
+                    >double-tap = Caps Word (capitalises until a non-alpha
+                    key)</span
+                  >
+                </div>
+                <div class="line-item">
+                  <span class="tag">Homerow rule</span
+                  ><span
+                    >mods fire reliably only against opposite-hand keys</span
+                  >
+                </div>
+                <div class="line-item">
+                  <span class="tag">Side key</span
+                  ><span
+                    >small key left of joystick DOWN &mdash; unique per
+                    layer</span
+                  >
+                </div>
+                <div class="line-item">
+                  <span class="tag">Soft off</span
+                  ><span>Q+S+Z &mdash; hold 2 s; wake by pressing any key</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="line-list">
-            <div class="line-item">
-              <span class="tag">BT profiles</span
-              ><span>Layer 1 home row &mdash; BT0&ndash;BT4; clear-all on left pinky</span>
-            </div>
-            <div class="line-item">
-              <span class="tag">BT clear</span
-              ><span>Layer 2, A position (BT CLR)</span>
-            </div>
-            <div class="line-item">
-              <span class="tag">USB / BLE</span><span>Layer 2 &mdash; Z = USB, X = BLE</span>
-            </div>
-            <div class="line-item">
-              <span class="tag">RGB</span
-              ><span>Layer 1 bottom-left &mdash; on/off, hue&plusmn;, effect&plusmn;, speed&plusmn;, brightness&plusmn;</span>
-            </div>
-            <div class="line-item">
-              <span class="tag">Shift key</span
-              ><span>double-tap = Caps Word (capitalises until a non-alpha key)</span>
-            </div>
-            <div class="line-item">
-              <span class="tag">Homerow rule</span
-              ><span>mods fire reliably only against opposite-hand keys</span>
-            </div>
-            <div class="line-item">
-              <span class="tag">Side key</span
-              ><span>small key left of joystick DOWN &mdash; unique per layer</span>
-            </div>
-            <div class="line-item">
-              <span class="tag">Soft off</span
-              ><span>Q+S+Z &mdash; hold 2 s; wake by pressing any key</span>
-            </div>
-          </div>
+          <!-- /.bottom-grid -->
         </div>
-
-      </div><!-- /.bottom-grid -->
-
-        </div><!-- /.main-col -->
+        <!-- /.main-col -->
         <div class="notes-sidebar">
           <h2>Notes</h2>
-          <div class="notes-lines" style="flex:1;min-height:0"></div>
+          <div class="notes-lines" style="flex: 1; min-height: 0"></div>
         </div>
-      </div><!-- /.body-grid -->
+      </div>
+      <!-- /.body-grid -->
     </div>
   </body>
 </html>
