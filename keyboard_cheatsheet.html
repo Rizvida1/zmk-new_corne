@@ -165,10 +165,100 @@
 
       .bottom-grid {
         display: grid;
-        grid-template-columns: 1.15fr 1fr 1fr;
+        grid-template-columns: 1.3fr 1fr;
         gap: 6px;
         flex: 0 0 auto;
         align-items: stretch;
+      }
+
+      /* ── Combo quick map ─────────────────────────────────── */
+      .combo-quick {
+        margin-bottom: 5px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .combo-quick-note {
+        font-size: 7px;
+        color: #64748b;
+        margin-bottom: 3px;
+      }
+
+      .combo-track {
+        display: grid;
+        gap: 3px;
+      }
+
+      .combo-lane {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 4px;
+        align-items: baseline;
+      }
+
+      .combo-label {
+        font-size: 6.7px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        color: #0f766e;
+        font-weight: 800;
+      }
+
+      .combo-chain {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px 4px;
+        align-items: center;
+      }
+
+      .combo-chip {
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 6.8px;
+        line-height: 1.15;
+        border: 1px solid #67e8f9;
+        border-bottom: 2px solid #0891b2;
+        border-radius: 3px;
+        background: #ecfeff;
+        color: #0f172a;
+        padding: 0 4px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .combo-action {
+        font-size: 6.8px;
+        color: #334155;
+        white-space: nowrap;
+      }
+
+      /* ── Combo mini keyboard ─────────────────────────────── */
+      .combo-mini-kbd .split { gap: 1.5px; }
+      .combo-mini-kbd .row   { gap: 1.5px; }
+      .combo-mini-kbd .key {
+        width: 12px;
+        height: 10px;
+        font-size: 4.8px;
+        border-width: 1px;
+        border-bottom-width: 2px;
+        border-radius: 2px;
+        padding: 0;
+        font-weight: 600;
+      }
+      .combo-mini-kbd .key.wide { width: 17px; }
+      .combo-mini-kbd .key.ghost {
+        border: 1px solid #e2e8f0;
+        border-bottom-width: 1px;
+        background: #f8fafc;
+        color: #c8d4e0;
+        font-weight: 400;
+      }
+      .combo-mini-kbd .gap { width: 10px; flex: 0 0 auto; }
+      .combo-mini-kbd .ck {
+        background: #ecfeff;
+        border-color: #0e7490;
+        border-bottom-color: #155e75;
+        color: #164e63;
+        font-weight: 800;
       }
 
       /* ── Cards ───────────────────────────────────────────── */
@@ -937,31 +1027,96 @@
         <div class="card combos">
           <div class="card-head">
             <h2>Combos</h2>
-            <div class="card-note">all on layer 0</div>
+            <div class="card-note">all on layer 0 · highlighted = combo keys</div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">
-            <table>
-              <tr><th>Keys</th><th>Action</th></tr>
-              <tr><td class="mono">TAB+Q</td><td>Toggle terminal</td></tr>
-              <tr><td class="mono">Q+W</td><td>Save</td></tr>
-              <tr><td class="mono">Q+E</td><td>Select all</td></tr>
-              <tr><td class="mono">W+E</td><td>Add next occurrence</td></tr>
-              <tr><td class="mono">W+R</td><td>Find in files</td></tr>
-              <tr><td class="mono">R+T</td><td>Rename (F2)</td></tr>
-              <tr><td class="mono">F+G</td><td>Find</td></tr>
-              <tr><td class="mono">F+J</td><td>Enter</td></tr>
-            </table>
-            <table>
-              <tr><th>Keys</th><th>Action</th></tr>
-              <tr><td class="mono">I+O</td><td>Copilot inline</td></tr>
-              <tr><td class="mono">O+P</td><td>Delete</td></tr>
-              <tr><td class="mono">Z+X</td><td>Undo</td></tr>
-              <tr><td class="mono">X+C</td><td>Copy</td></tr>
-              <tr><td class="mono">X+V</td><td>Cut</td></tr>
-              <tr><td class="mono">C+V</td><td>Paste</td></tr>
-              <tr><td class="mono">.+/</td><td>Toggle comment</td></tr>
-              <tr><td class="mono">Q+S+Z</td><td>Soft off</td></tr>
-            </table>
+          <div class="combo-quick" style="display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start">
+            <div class="combo-track">
+              <div class="combo-lane">
+                <div class="combo-label">Top row</div>
+                <div class="combo-chain">
+                  <span class="combo-chip">TAB+Q</span><span class="combo-action">terminal</span>
+                  <span class="combo-chip">Q+W</span><span class="combo-action">save</span>
+                  <span class="combo-chip">Q+E</span><span class="combo-action">select all</span>
+                  <span class="combo-chip">W+E</span><span class="combo-action">add next</span>
+                  <span class="combo-chip">W+R</span><span class="combo-action">find files</span>
+                  <span class="combo-chip">R+T</span><span class="combo-action">rename</span>
+                </div>
+              </div>
+              <div class="combo-lane">
+                <div class="combo-label">Home row</div>
+                <div class="combo-chain">
+                  <span class="combo-chip">F+G</span><span class="combo-action">find</span>
+                  <span class="combo-chip">F+J</span><span class="combo-action">enter</span>
+                </div>
+              </div>
+              <div class="combo-lane">
+                <div class="combo-label">Right top</div>
+                <div class="combo-chain">
+                  <span class="combo-chip">I+O</span><span class="combo-action">copilot inline</span>
+                  <span class="combo-chip">O+P</span><span class="combo-action">delete</span>
+                </div>
+              </div>
+              <div class="combo-lane">
+                <div class="combo-label">Bottom</div>
+                <div class="combo-chain">
+                  <span class="combo-chip">Z+X</span><span class="combo-action">undo</span>
+                  <span class="combo-chip">X+C</span><span class="combo-action">copy</span>
+                  <span class="combo-chip">X+V</span><span class="combo-action">cut</span>
+                  <span class="combo-chip">C+V</span><span class="combo-action">paste</span>
+                  <span class="combo-chip">.+/</span><span class="combo-action">comment</span>
+                  <span class="combo-chip">Q+S+Z</span><span class="combo-action">soft off</span>
+                </div>
+              </div>
+            </div>
+            <div class="combo-mini-kbd">
+              <div class="split">
+                <div class="row">
+                  <div class="key wide ck"><div class="tap">TAB</div></div>
+                  <div class="key ck"><div class="tap">Q</div></div>
+                  <div class="key ck"><div class="tap">W</div></div>
+                  <div class="key ck"><div class="tap">E</div></div>
+                  <div class="key ck"><div class="tap">R</div></div>
+                  <div class="key ck"><div class="tap">T</div></div>
+                  <div class="gap"></div>
+                  <div class="key ghost"><div class="tap">Y</div></div>
+                  <div class="key ghost"><div class="tap">U</div></div>
+                  <div class="key ck"><div class="tap">I</div></div>
+                  <div class="key ck"><div class="tap">O</div></div>
+                  <div class="key ck"><div class="tap">P</div></div>
+                  <div class="key wide ghost"><div class="tap">ESC</div></div>
+                </div>
+                <div class="row">
+                  <div class="key wide ghost"><div class="tap">SHF</div></div>
+                  <div class="key ghost"><div class="tap">A</div></div>
+                  <div class="key ck"><div class="tap">S</div></div>
+                  <div class="key ghost"><div class="tap">D</div></div>
+                  <div class="key ck"><div class="tap">F</div></div>
+                  <div class="key ck"><div class="tap">G</div></div>
+                  <div class="gap"></div>
+                  <div class="key ghost"><div class="tap">H</div></div>
+                  <div class="key ck"><div class="tap">J</div></div>
+                  <div class="key ghost"><div class="tap">K</div></div>
+                  <div class="key ghost"><div class="tap">L</div></div>
+                  <div class="key ghost"><div class="tap">;</div></div>
+                  <div class="key wide ghost"><div class="tap">'</div></div>
+                </div>
+                <div class="row">
+                  <div class="key wide ghost"><div class="tap">ALT</div></div>
+                  <div class="key ck"><div class="tap">Z</div></div>
+                  <div class="key ck"><div class="tap">X</div></div>
+                  <div class="key ck"><div class="tap">C</div></div>
+                  <div class="key ck"><div class="tap">V</div></div>
+                  <div class="key ghost"><div class="tap">B</div></div>
+                  <div class="gap"></div>
+                  <div class="key ghost"><div class="tap">N</div></div>
+                  <div class="key ghost"><div class="tap">M</div></div>
+                  <div class="key ghost"><div class="tap">,</div></div>
+                  <div class="key ck"><div class="tap">.</div></div>
+                  <div class="key ck"><div class="tap">/</div></div>
+                  <div class="key wide ghost"><div class="tap">ENT</div></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1002,13 +1157,6 @@
               ><span>Q+S+Z &mdash; hold 2 s; wake by pressing any key</span>
             </div>
           </div>
-        </div>
-
-        <div class="card notes" style="display:flex;flex-direction:column">
-          <div class="card-head">
-            <h2>Notes</h2>
-          </div>
-          <div class="notes-lines" style="flex:1"></div>
         </div>
 
       </div><!-- /.bottom-grid -->
