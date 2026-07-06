@@ -1,5 +1,5 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 40   // Increased for faster scrolling (was 25)
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 2500  // Must be >=1000/trigger_period_ms(16) for non-zero scroll per tick; 2500 = exactly 1 scroll click per encoder step (40 units * zip_scroll_scaler 3 = 120 HID units)
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -243,7 +243,7 @@
 &kp TAB      &kp Q        &kp W        &kp E         &kp R         &kp T                         &kp UP                &kp Y  &kp U         &kp I         &kp O        &kp P           &kp ESC
 &shift_caps  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G               &kp LEFT  &kp ENTER  &kp RIGHT  &kp H  &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L  &hmr LGUI SEMI  &kp SQT
 &kp LALT     &kp Z        &kp X        &kp C         &kp V         &kp B  &mkp MCLK              &kp DOWN              &kp N  &kp M         &kp COMMA     &kp DOT      &kp FSLH        &kp ENTER
-                                       &kp LGUI      &lt 3 BSPC    &mo 2                                               &mo 1  &lt 3 SPACE   &kp RCTRL
+                                       &kp LGUI      &lt 3 SPACE   &mo 2                                               &mo 1  &lt 3 BSPC    &kp RCTRL
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -279,7 +279,7 @@
 &studio_unlock  &kp F1      &kp F2         &kp F3        &kp F4         &kp F5                                           &mmv MOVE_UP                     &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
 &trans          &trans      &kp LS(TAB)    &kp LALT      &kp TAB        &mkp MB4                         &mmv MOVE_LEFT  &td_click       &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
 &trans          &sys_reset  &trans         &bootloader   &trans         &mkp MB5  &mt LC(LS(T)) LC(W)                    &mmv MOVE_DOWN                   &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                                           &trans        &kp BACKSPACE  &trans                                                                            &trans  &kp SPACE  &trans
+                                           &trans        &kp SPACE      &trans                                                                            &trans  &kp BSPC   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(TAB) LC(LS(TAB))>;

@@ -165,109 +165,102 @@
 
       .bottom-grid {
         display: grid;
-        grid-template-columns: 1.3fr 1fr;
+        grid-template-columns: 1.6fr 1fr;
         gap: 6px;
         flex: 0 0 auto;
         align-items: stretch;
       }
 
-      /* ── Combo quick map ─────────────────────────────────── */
-      .combo-quick {
-        margin-bottom: 5px;
-        padding-bottom: 4px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .combo-quick-note {
-        font-size: 7px;
-        color: #64748b;
-        margin-bottom: 3px;
-      }
-
-      .combo-track {
-        display: grid;
-        gap: 3px;
-      }
-
-      .combo-lane {
-        display: grid;
-        grid-template-columns: 56px 1fr;
-        gap: 4px;
-        align-items: baseline;
-      }
-
-      .combo-label {
-        font-size: 6.7px;
-        text-transform: uppercase;
-        letter-spacing: 0.4px;
-        color: #0f766e;
-        font-weight: 800;
-      }
-
-      .combo-chain {
+      /* ── Combo map keyboard ──────────────────────────────── */
+      .cmap-body {
         display: flex;
-        flex-wrap: wrap;
-        gap: 2px 4px;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .cmap-kbd {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        flex: 0 0 auto;
+      }
+      .cmap-row {
+        display: flex;
+        gap: 2px;
         align-items: center;
       }
-
-      .combo-chip {
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 6.8px;
-        line-height: 1.15;
-        border: 1px solid #67e8f9;
-        border-bottom: 2px solid #0891b2;
-        border-radius: 3px;
-        background: #ecfeff;
-        color: #0f172a;
-        padding: 0 4px;
-        font-weight: 700;
-        white-space: nowrap;
-      }
-
-      .combo-action {
-        font-size: 6.8px;
-        color: #334155;
-        white-space: nowrap;
-      }
-
-      /* ── Combo mini keyboard ─────────────────────────────── */
-      .combo-mini-kbd .split {
-        gap: 1.5px;
-      }
-      .combo-mini-kbd .row {
-        gap: 1.5px;
-      }
-      .combo-mini-kbd .key {
-        width: 12px;
-        height: 10px;
-        font-size: 4.8px;
-        border-width: 1px;
-        border-bottom-width: 2px;
-        border-radius: 2px;
-        padding: 0;
-        font-weight: 600;
-      }
-      .combo-mini-kbd .key.wide {
-        width: 17px;
-      }
-      .combo-mini-kbd .key.ghost {
-        border: 1px solid #e2e8f0;
-        border-bottom-width: 1px;
-        background: #f8fafc;
-        color: #c8d4e0;
-        font-weight: 400;
-      }
-      .combo-mini-kbd .gap {
+      .cmap-gap {
         width: 10px;
         flex: 0 0 auto;
       }
-      .combo-mini-kbd .ck {
+      .cmap-key {
+        width: 26px;
+        height: 24px;
+        border: 1px solid #cbd5e1;
+        border-bottom: 2px solid #94a3b8;
+        background: #f8fafc;
+        border-radius: 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 1px;
+        box-sizing: border-box;
+        font-family: Consolas, "Courier New", monospace;
+      }
+      .cmap-key.wide {
+        width: 36px;
+      }
+      .cmap-key.combo {
         background: #ecfeff;
         border-color: #0e7490;
         border-bottom-color: #155e75;
-        color: #164e63;
+      }
+      .cmap-letter {
+        font-size: 7.5px;
+        font-weight: 500;
+        color: #94a3b8;
+        line-height: 1;
+      }
+      .cmap-key.combo .cmap-letter {
         font-weight: 800;
+        color: #164e63;
+      }
+      .cmap-nums {
+        display: flex;
+        gap: 0.5px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .cmap-n {
+        font-size: 5px;
+        font-weight: 900;
+        color: #0891b2;
+        line-height: 1;
+      }
+      .cmap-legend {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px 6px;
+        border-left: 1px solid #e2e8f0;
+        padding-left: 10px;
+        flex: 1;
+        align-content: start;
+      }
+      .cmap-item {
+        display: flex;
+        align-items: baseline;
+        gap: 2.5px;
+      }
+      .cmap-ln {
+        font-size: 6.5px;
+        font-weight: 900;
+        color: #0891b2;
+        flex: 0 0 auto;
+      }
+      .cmap-la {
+        font-size: 6.5px;
+        color: #334155;
+        white-space: nowrap;
       }
 
       /* ── Cards ───────────────────────────────────────────── */
@@ -719,7 +712,7 @@
                 <div class="row">
                   <div class="key thumb"><div class="tap">GUI</div></div>
                   <div class="key thumb entry">
-                    <div class="tap">BSPC</div>
+                    <div class="tap">SPACE</div>
                     <div class="hold">ENTRY FN</div>
                   </div>
                   <div class="key thumb entry">
@@ -732,7 +725,7 @@
                     <div class="hold">ENTRY L1</div>
                   </div>
                   <div class="key thumb entry">
-                    <div class="tap">SPACE</div>
+                    <div class="tap">BSPC</div>
                     <div class="hold">ENTRY FN</div>
                   </div>
                   <div class="key thumb"><div class="tap">RCTRL</div></div>
@@ -1088,12 +1081,14 @@
                 </div>
                 <div class="row">
                   <div class="key thumb ghost"><div class="tap">base</div></div>
-                  <div class="key thumb layer"><div class="tap">BSPC</div></div>
+                  <div class="key thumb layer">
+                    <div class="tap">SPACE</div>
+                  </div>
                   <div class="key thumb ghost"><div class="tap">base</div></div>
                   <div class="gap"></div>
                   <div class="key thumb ghost"><div class="tap">base</div></div>
                   <div class="key thumb layer">
-                    <div class="tap">SPACE</div>
+                    <div class="tap">BSPC</div>
                   </div>
                   <div class="key thumb ghost"><div class="tap">base</div></div>
                 </div>
@@ -1148,127 +1143,254 @@
               <div class="card-head">
                 <h2>Combos</h2>
                 <div class="card-note">
-                  all on layer 0 · highlighted = combo keys
+                  layer 0 · cyan = combo key · numbers = combo index
                 </div>
               </div>
-              <div
-                class="combo-quick"
-                style="
-                  display: grid;
-                  grid-template-columns: 1fr auto;
-                  gap: 8px;
-                  align-items: start;
-                "
-              >
-                <div class="combo-track">
-                  <div class="combo-lane">
-                    <div class="combo-label">Top row</div>
-                    <div class="combo-chain">
-                      <span class="combo-chip">TAB+Q</span
-                      ><span class="combo-action">terminal</span>
-                      <span class="combo-chip">Q+W</span
-                      ><span class="combo-action">save</span>
-                      <span class="combo-chip">Q+E</span
-                      ><span class="combo-action">select all</span>
-                      <span class="combo-chip">W+E</span
-                      ><span class="combo-action">add next</span>
-                      <span class="combo-chip">W+R</span
-                      ><span class="combo-action">find files</span>
-                      <span class="combo-chip">R+T</span
-                      ><span class="combo-action">rename</span>
+              <div class="cmap-body">
+                <div class="cmap-kbd">
+                  <div class="cmap-row">
+                    <div class="cmap-key wide combo">
+                      <span class="cmap-letter">TAB</span>
+                      <div class="cmap-nums"><span class="cmap-n">1</span></div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">Q</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">1</span
+                        ><span class="cmap-n">2</span
+                        ><span class="cmap-n">3</span
+                        ><span class="cmap-n">16</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">W</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">2</span
+                        ><span class="cmap-n">4</span
+                        ><span class="cmap-n">5</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">E</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">3</span
+                        ><span class="cmap-n">4</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">R</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">5</span
+                        ><span class="cmap-n">6</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">T</span>
+                      <div class="cmap-nums"><span class="cmap-n">6</span></div>
+                    </div>
+                    <div class="cmap-gap"></div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">Y</span>
+                    </div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">U</span>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">I</span>
+                      <div class="cmap-nums"><span class="cmap-n">7</span></div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">O</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">7</span
+                        ><span class="cmap-n">8</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">P</span>
+                      <div class="cmap-nums"><span class="cmap-n">8</span></div>
+                    </div>
+                    <div class="cmap-key wide">
+                      <span class="cmap-letter">ESC</span>
                     </div>
                   </div>
-                  <div class="combo-lane">
-                    <div class="combo-label">Home row</div>
-                    <div class="combo-chain">
-                      <span class="combo-chip">F+G</span
-                      ><span class="combo-action">find</span>
-                      <span class="combo-chip">F+J</span
-                      ><span class="combo-action">enter</span>
+                  <div class="cmap-row">
+                    <div class="cmap-key wide">
+                      <span class="cmap-letter">SHF</span>
+                    </div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">A</span>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">S</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">16</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">D</span>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">F</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">9</span
+                        ><span class="cmap-n">10</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">G</span>
+                      <div class="cmap-nums"><span class="cmap-n">9</span></div>
+                    </div>
+                    <div class="cmap-gap"></div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">H</span>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">J</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">10</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">K</span>
+                    </div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">L</span>
+                    </div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">;</span>
+                    </div>
+                    <div class="cmap-key wide">
+                      <span class="cmap-letter">'</span>
                     </div>
                   </div>
-                  <div class="combo-lane">
-                    <div class="combo-label">Right top</div>
-                    <div class="combo-chain">
-                      <span class="combo-chip">I+O</span
-                      ><span class="combo-action">copilot inline</span>
-                      <span class="combo-chip">O+P</span
-                      ><span class="combo-action">delete</span>
+                  <div class="cmap-row">
+                    <div class="cmap-key wide">
+                      <span class="cmap-letter">ALT</span>
                     </div>
-                  </div>
-                  <div class="combo-lane">
-                    <div class="combo-label">Bottom</div>
-                    <div class="combo-chain">
-                      <span class="combo-chip">Z+X</span
-                      ><span class="combo-action">undo</span>
-                      <span class="combo-chip">X+C</span
-                      ><span class="combo-action">copy</span>
-                      <span class="combo-chip">X+V</span
-                      ><span class="combo-action">cut</span>
-                      <span class="combo-chip">C+V</span
-                      ><span class="combo-action">paste</span>
-                      <span class="combo-chip">.+/</span
-                      ><span class="combo-action">comment</span>
-                      <span class="combo-chip">Q+S+Z</span
-                      ><span class="combo-action">soft off</span>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">Z</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">11</span
+                        ><span class="cmap-n">16</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">X</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">11</span
+                        ><span class="cmap-n">12</span
+                        ><span class="cmap-n">14</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">C</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">12</span
+                        ><span class="cmap-n">13</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">V</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">13</span
+                        ><span class="cmap-n">14</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">B</span>
+                    </div>
+                    <div class="cmap-gap"></div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">N</span>
+                    </div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">M</span>
+                    </div>
+                    <div class="cmap-key">
+                      <span class="cmap-letter">,</span>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">.</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">15</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key combo">
+                      <span class="cmap-letter">/</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n">15</span>
+                      </div>
+                    </div>
+                    <div class="cmap-key wide">
+                      <span class="cmap-letter">ENT</span>
                     </div>
                   </div>
                 </div>
-                <div class="combo-mini-kbd">
-                  <div class="split">
-                    <div class="row">
-                      <div class="key wide ck"><div class="tap">TAB</div></div>
-                      <div class="key ck"><div class="tap">Q</div></div>
-                      <div class="key ck"><div class="tap">W</div></div>
-                      <div class="key ck"><div class="tap">E</div></div>
-                      <div class="key ck"><div class="tap">R</div></div>
-                      <div class="key ck"><div class="tap">T</div></div>
-                      <div class="gap"></div>
-                      <div class="key ghost"><div class="tap">Y</div></div>
-                      <div class="key ghost"><div class="tap">U</div></div>
-                      <div class="key ck"><div class="tap">I</div></div>
-                      <div class="key ck"><div class="tap">O</div></div>
-                      <div class="key ck"><div class="tap">P</div></div>
-                      <div class="key wide ghost">
-                        <div class="tap">ESC</div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="key wide ghost">
-                        <div class="tap">SHF</div>
-                      </div>
-                      <div class="key ghost"><div class="tap">A</div></div>
-                      <div class="key ck"><div class="tap">S</div></div>
-                      <div class="key ghost"><div class="tap">D</div></div>
-                      <div class="key ck"><div class="tap">F</div></div>
-                      <div class="key ck"><div class="tap">G</div></div>
-                      <div class="gap"></div>
-                      <div class="key ghost"><div class="tap">H</div></div>
-                      <div class="key ck"><div class="tap">J</div></div>
-                      <div class="key ghost"><div class="tap">K</div></div>
-                      <div class="key ghost"><div class="tap">L</div></div>
-                      <div class="key ghost"><div class="tap">;</div></div>
-                      <div class="key wide ghost"><div class="tap">'</div></div>
-                    </div>
-                    <div class="row">
-                      <div class="key wide ghost">
-                        <div class="tap">ALT</div>
-                      </div>
-                      <div class="key ck"><div class="tap">Z</div></div>
-                      <div class="key ck"><div class="tap">X</div></div>
-                      <div class="key ck"><div class="tap">C</div></div>
-                      <div class="key ck"><div class="tap">V</div></div>
-                      <div class="key ghost"><div class="tap">B</div></div>
-                      <div class="gap"></div>
-                      <div class="key ghost"><div class="tap">N</div></div>
-                      <div class="key ghost"><div class="tap">M</div></div>
-                      <div class="key ghost"><div class="tap">,</div></div>
-                      <div class="key ck"><div class="tap">.</div></div>
-                      <div class="key ck"><div class="tap">/</div></div>
-                      <div class="key wide ghost">
-                        <div class="tap">ENT</div>
-                      </div>
-                    </div>
+                <div class="cmap-legend">
+                  <div class="cmap-item">
+                    <span class="cmap-ln">1</span
+                    ><span class="cmap-la">TAB+Q Terminal</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">2</span
+                    ><span class="cmap-la">Q+W Save</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">3</span
+                    ><span class="cmap-la">Q+E Select all</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">4</span
+                    ><span class="cmap-la">W+E Add next</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">5</span
+                    ><span class="cmap-la">W+R Find files</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">6</span
+                    ><span class="cmap-la">R+T Rename</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">7</span
+                    ><span class="cmap-la">I+O Copilot inline</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">8</span
+                    ><span class="cmap-la">O+P Delete</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">9</span
+                    ><span class="cmap-la">F+G Find</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">10</span
+                    ><span class="cmap-la">F+J Enter</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">11</span
+                    ><span class="cmap-la">Z+X Undo</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">12</span
+                    ><span class="cmap-la">X+C Copy</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">13</span
+                    ><span class="cmap-la">C+V Paste</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">14</span
+                    ><span class="cmap-la">X+V Cut</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">15</span
+                    ><span class="cmap-la">./ Comment</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln">16</span
+                    ><span class="cmap-la">Q+S+Z Soft off</span>
                   </div>
                 </div>
               </div>
