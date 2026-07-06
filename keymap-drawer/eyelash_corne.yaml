@@ -44,10 +44,10 @@ layers:
   - {t: /, s: '?'}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:microsoft-windows$$
-  - {t: '$$mdi:backspace$$', h: Fn}
+  - {t: '$$mdi:keyboard-space$$', h: Fn}
   - SYMBOL
   - NUMBER
-  - {t: '$$mdi:keyboard-space$$', h: Fn}
+  - {t: '$$mdi:backspace$$', h: Fn}
   - Ctrl
   NUMBER:
   - {t: '$$mdi:transfer$$', type: trans}
@@ -191,10 +191,10 @@ layers:
   - SCROLLLOCK
   - PAUSE BREAK
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:backspace$$', type: held}
+  - {t: '$$mdi:keyboard-space$$', type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:keyboard-space$$', type: held alternate}
+  - {t: '$$mdi:backspace$$', type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
 - p: [30, 31]
