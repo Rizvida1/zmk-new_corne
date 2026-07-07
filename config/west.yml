@@ -2,8 +2,10 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: m165437
-      url-base: https://github.com/M165437
+    - name: mctechnology17
+      url-base: https://github.com/mctechnology17
+    - name: gpeye
+      url-base: https://github.com/GPeye
       # Additional modules containing boards/shields/custom code can be listed here as well.
       # See:
       # - https://zmk.dev/docs/features/modules
@@ -12,9 +14,12 @@ manifest:
     - name: eyelash_corne
       url: https://github.com/a741725193/zmk-new_corne
       revision: main
-    - name: nice-view-gem
-      remote: m165437
-      revision: v0.3.0
+    - name: zmk-nice-oled
+      remote: mctechnology17
+      revision: main
+    - name: hammerbeam-slideshow
+      remote: gpeye
+      revision: main
     - name: zmk
       remote: zmkfirmware
       revision: v0.3.0
