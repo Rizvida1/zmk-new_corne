@@ -61,8 +61,9 @@ Layer 3: "Fn" (function keys, system controls, bootloader access)
 ### Module Dependencies
 
 - **eyelash_corne**: Hardware board definition (external GitHub module)
-- **nice-view-gem**: Display module for the nice!view screen
-- **zmk**: Main ZMK firmware (tracks latest main branch)
+- **zmk-nice-oled** (`mctechnology17`): Display widget module; the **left/central** half uses the `nice_epaper` shield (`CONFIG_NICE_EPAPER_ON=y`)
+- **hammerbeam-slideshow** (`GPeye`): Static image slideshow on the **right/peripheral** half
+- **zmk**: Main ZMK firmware (pinned to `v0.3.0` in `config/west.yml`)
 
 ## Project-Specific Conventions
 
@@ -87,11 +88,46 @@ Layer 3: "Fn" (function keys, system controls, bootloader access)
 - Window management: `LA(TAB)` (Alt-Tab), `LC(W)` (close tab)
 - Bluetooth and output switching integrated into NUMBER layer
 
+## Display Layout (nice-oled / nice_epaper)
+
+The left/central `nice!view` screen is driven by the `zmk-nice-oled` module. All display config lives in [`config/eyelash_corne.conf`](../config/eyelash_corne.conf). The authoritative list of widget toggles and default positions is the module's `boards/shields/nice_oled/Kconfig.defconfig` (the module README table has at least one mismatch — trust the Kconfig).
+
+### Coordinate system (critical)
+
+The physical screen is **160w × 68h landscape**. There are TWO coordinate spaces:
+
+1. **Canvas-drawn widgets** (layer, battery, profile, output, WPM gauge, raw-hid): drawn on a **68w × 160h portrait canvas rotated 90°**. So `CUSTOM_X/Y` are portrait coords, and on-screen `landscape_X ≈ 159 − portrait_Y`, `landscape_Y ≈ portrait_X`. Higher `_Y` = further LEFT on screen.
+2. **LVGL object widgets** (bongo cat, luna, HID indicators, modifier icons): use **direct landscape coords** (`X` 0–159, `Y` 0–67).
+   - Modifier icons render as a row offset from `MODIFIERS_CUSTOM_X/Y`: win/alt/shf/ctl at `X+37/+51/+65/+78`, all at `Y−44`.
+
+### Key gotchas
+
+- **Module defaults are per-widget and are NOT designed to all coexist on 160×68.** Enabling everything (the module default) overlaps widgets — this is the "everything in the wrong place" chaos, NOT a RAM/perf problem. Fix by curating a subset and positioning explicitly.
+- **The layer-name font is hardcoded** (`layer.c` → `pixel_operator_mono_16`); there is NO Kconfig to enlarge it. It's already the largest font shipped.
+- **Battery labels**: `CONFIG_..._CENTRAL_SHOW_BATTERY_PERIPHERAL_ALL=y` shows both halves AND suppresses the hardcoded "SIG" label; requires `CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y` for the right half to report.
+- **BT profile number**: no disable flag; set `CONFIG_NICE_OLED_WIDGET_PROFILE_BIG=n` to shrink it.
+- **CapsLock as a pet**: the HID-indicators widget has `LUNA` and `BONGO_CAT` sub-modes. Setting `CONFIG_NICE_OLED_WIDGET_HID_INDICATORS_BONGO_CAT=y` + `..._BONGO_CAT_ONLY_CAPSLOCK=y` makes ONE widget act as a CapsLock indicator drawn as a bongo cat (no `ZMK_WPM` dependency — that's the WPM bongo cat, a different widget). Position via `..._HID_INDICATORS_CUSTOM_X/Y` (direct landscape coords; ePaper default `100,8` overlaps the battery).
+
+### Current curated layout (left → right on the 160-wide screen)
+
+| Zone     | Widget                         | Position                          |
+| -------- | ------------------------------ | --------------------------------- |
+| X≈13     | Layer name (largest font)      | canvas, portrait `0,146`          |
+| X≈30     | BT profile number (small)      | `PROFILE_BIG=n`                   |
+| X≈60–101 | Modifiers `⊞ Alt ⇧ ⌃` icon row | `MODIFIERS_CUSTOM_X=23,Y=62`      |
+| X≈55–95  | CapsLock indicator (bongo cat) | `HID_INDICATORS_CUSTOM_X=55,Y=33` |
+| X≈140    | Battery `L% R%` (no labels)    | canvas, portrait `26,19`          |
+| X≈159    | Output / signal (BT/USB)       | canvas, portrait `49,0`           |
+
+### ePaper default positions (portrait canvas X,Y — from Kconfig.defconfig)
+
+`layer 0,146` · `battery 26,19` · `profile 18,129` · `output-bt 49,0` · `output-usb 45,2` · `modifiers 62,62` · `hid-indicators (landscape) 100,8` · `bongo-cat (landscape) 100,8` · `luna (landscape) 100,15`. When adding a widget, place it in a free landscape-X zone and avoid the battery cluster (landscape X≈140–159).
+
 ## Integration Points
 
 ### Hardware Dependencies
 
-- **nice!view display**: Requires `nice-view-gem` shield
+- **nice!view display**: Driven by the `zmk-nice-oled` module in `nice_epaper` mode (NOT `nice-view-gem`)
 - **RGB underglow**: WS2812 LED strip with custom animations
 - **Rotary encoder**: Context-sensitive scroll/volume/navigation per layer
 - **Split communication**: Wireless via nice!nano controllers
