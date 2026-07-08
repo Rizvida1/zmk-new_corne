@@ -94,34 +94,35 @@ The left/central `nice!view` screen is driven by the `zmk-nice-oled` module. All
 
 ### Coordinate system (critical)
 
-The physical screen is **160w × 68h landscape**. There are TWO coordinate spaces:
+The physical screen is **160w × 68h landscape**. The LVGL container is also **160×68** (landscape). But the canvas that canvas-drawn widgets render onto is **68w × 160h portrait**, and `rotate_canvas()` rotates it 90° to fill the landscape frame.
 
-1. **Canvas-drawn widgets** (layer, battery, profile, output, WPM gauge, raw-hid): drawn on a **68w × 160h portrait canvas rotated 90°**. So `CUSTOM_X/Y` are portrait coords, and on-screen `landscape_X ≈ 159 − portrait_Y`, `landscape_Y ≈ portrait_X`. Higher `_Y` = further LEFT on screen.
-2. **LVGL object widgets** (bongo cat, luna, HID indicators, modifier icons): use **direct landscape coords** (`X` 0–159, `Y` 0–67).
-   - Modifier icons render as a row offset from `MODIFIERS_CUSTOM_X/Y`: win/alt/shf/ctl at `X+37/+51/+65/+78`, all at `Y−44`.
+There are **two** coordinate spaces:
+
+1. **Canvas-drawn widgets** (layer, battery, profile, output, WPM gauge, raw-hid, **and `MODIFIERS_INDICATORS_FIXED`**): drawn on the **68×160 portrait canvas**. `CUSTOM_X/Y` are portrait coords: `landscape_X ≈ 159 − portrait_Y`, `landscape_Y = portrait_X`. Portrait X range 0–67, portrait Y range 0–159.
+2. **LVGL object widgets** (WPM bongo cat, WPM luna, HID indicators, responsive bongo cat): placed as child LVGL objects using **direct landscape coords** (X 0–159, Y 0–67).
 
 ### Key gotchas
 
-- **Module defaults are per-widget and are NOT designed to all coexist on 160×68.** Enabling everything (the module default) overlaps widgets — this is the "everything in the wrong place" chaos, NOT a RAM/perf problem. Fix by curating a subset and positioning explicitly.
-- **The layer-name font is hardcoded** (`layer.c` → `pixel_operator_mono_16`); there is NO Kconfig to enlarge it. It's already the largest font shipped.
-- **Battery labels**: `CONFIG_..._CENTRAL_SHOW_BATTERY_PERIPHERAL_ALL=y` shows both halves AND suppresses the hardcoded "SIG" label; requires `CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y` for the right half to report.
+- **`MODIFIERS_INDICATORS_FIXED` is canvas-drawn, NOT an LVGL object.** Icons are placed at portrait `(base_x + i×16, base_y)` in HOR mode. Since portrait X is 0–67, `base_x + 3×16 ≤ 67` → `base_x ≤ 19`. The module’s ePaper default of `X=62` is therefore broken for HOR (icon 2–4 all off-canvas). **Use `FIXED_VER` with CENTER alignment instead** — the source hard-codes portrait positions `(27, 62/78/94/110)` which are all within bounds and produce a physical horizontal row.
+- **Module defaults all coexist poorly on 160×68.** Enabling everything overlaps widgets — this is the “everything in the wrong place” chaos, NOT a RAM/perf problem. Curate a minimal subset.
+- **The layer-name font is hardcoded** (`layer.c` → `pixel_operator_mono_16`); there is NO Kconfig to enlarge it.
+- **Battery labels**: `CONFIG_..._CENTRAL_SHOW_BATTERY_PERIPHERAL_ALL=y` shows both halves AND suppresses the hardcoded “SIG” label; requires `CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y`.
 - **BT profile number**: no disable flag; set `CONFIG_NICE_OLED_WIDGET_PROFILE_BIG=n` to shrink it.
-- **CapsLock as a pet**: the HID-indicators widget has `LUNA` and `BONGO_CAT` sub-modes. Setting `CONFIG_NICE_OLED_WIDGET_HID_INDICATORS_BONGO_CAT=y` + `..._BONGO_CAT_ONLY_CAPSLOCK=y` makes ONE widget act as a CapsLock indicator drawn as a bongo cat (no `ZMK_WPM` dependency — that's the WPM bongo cat, a different widget). Position via `..._HID_INDICATORS_CUSTOM_X/Y` (direct landscape coords; ePaper default `100,8` overlaps the battery).
+- **HID indicators (CapsLock) do NOT work on this display.** The bongo cat and luna sub-modes both render as a solid white rectangle on the nice!view 1-bit monochrome display. The plain (no animation) mode shows nothing (confirmed from source: just `lv_label_set_text("")`). There is no working CapsLock indicator without patching the module.
 
 ### Current curated layout (left → right on the 160-wide screen)
 
-| Zone     | Widget                         | Position                          |
-| -------- | ------------------------------ | --------------------------------- |
-| X≈13     | Layer name (largest font)      | canvas, portrait `0,146`          |
-| X≈30     | BT profile number (small)      | `PROFILE_BIG=n`                   |
-| X≈60–101 | Modifiers `⊞ Alt ⇧ ⌃` icon row | `MODIFIERS_CUSTOM_X=23,Y=62`      |
-| X≈55–95  | CapsLock indicator (bongo cat) | `HID_INDICATORS_CUSTOM_X=55,Y=33` |
-| X≈140    | Battery `L% R%` (no labels)    | canvas, portrait `26,19`          |
-| X≈159    | Output / signal (BT/USB)       | canvas, portrait `49,0`           |
+| Zone          | Widget                               | Position                                                          |
+| ------------- | ------------------------------------ | ----------------------------------------------------------------- |
+| X≈13          | Layer name (largest font)            | canvas, portrait `0,146`                                          |
+| X≈30          | BT profile number (small)            | `PROFILE_BIG=n`                                                   |
+| X=49/65/81/97 | Modifiers `⊞ ⇧ Alt ⌃` horizontal row | canvas VER CENTER (hardcoded portrait `27,62–110`), physical Y=27 |
+| X≈140         | Battery `L% R%` (no labels)          | canvas, portrait `26,19`                                          |
+| X≈159         | Output / signal (BT/USB)             | canvas, portrait `49,0`                                           |
 
 ### ePaper default positions (portrait canvas X,Y — from Kconfig.defconfig)
 
-`layer 0,146` · `battery 26,19` · `profile 18,129` · `output-bt 49,0` · `output-usb 45,2` · `modifiers 62,62` · `hid-indicators (landscape) 100,8` · `bongo-cat (landscape) 100,8` · `luna (landscape) 100,15`. When adding a widget, place it in a free landscape-X zone and avoid the battery cluster (landscape X≈140–159).
+`layer 0,146` · `battery 26,19` · `profile 18,129` · `output-bt 49,0` · `output-usb 45,2` · `modifiers-HOR 62,62` (broken: X=62 clips icons 2–4 off canvas) · `modifiers-VER-CENTER hardcoded 27,62` · `hid-indicators (LVGL, broken on 1-bit display) 100,8`.
 
 ## Integration Points
 
