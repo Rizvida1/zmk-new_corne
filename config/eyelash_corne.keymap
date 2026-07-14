@@ -83,7 +83,7 @@
             compatible = "zmk,behavior-tap-dance";
             display-name = "Shift/Caps Word";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&caps_word>;
+            bindings = <&kp LEFT_SHIFT>, <&cw_tog>;
 
             tapping-term-ms = <200>;
         };
@@ -234,6 +234,17 @@
 
   
 
+    macros {
+        // Activates Caps Word AND toggles layer 4 ("CAPS") at the same time,
+        // so the display shows the layer name while caps word is active.
+        // Double-shift again to toggle layer 4 back off.
+        cw_tog: cw_tog {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &caps_word &tog 4>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -283,6 +294,20 @@
             >;
 
             sensor-bindings = <&inc_dec_kp LC(TAB) LC(LS(TAB))>;
+        };
+
+        // Transparent overlay: all keys pass through to layer 0.
+        // Its only job is to change the display name to "CAPS" while
+        // Caps Word is active. Double-shift toggles this layer back off.
+        caps_layer {
+            display-name = "CAPS";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                          &trans  &trans  &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
         };
     };
 };
