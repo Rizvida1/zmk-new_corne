@@ -57,6 +57,7 @@ Layer 3: "Fn" (function keys, system controls, bootloader access)
 - **GitHub Actions**: Auto-builds on config changes via `.github/workflows/build.yml`
 - **Local Testing**: Use ZMK's west build system or GitHub workflow dispatch
 - **Targets**: Produces left/right firmware, Studio-enabled builds, and settings reset
+- **Host-side RAW HID app**: local patched clone lives at `C:\Users\RabR\dev\qmk-hid-host`; repo backups of the patched files live under `host_patches/qmk-hid-host/` with restore script `host_patches/apply_qmk_hid_host_patches.ps1`
 
 ### Module Dependencies
 
@@ -108,14 +109,27 @@ There are **two** coordinate spaces:
 - **The layer-name font is hardcoded** (`layer.c` → `pixel_operator_mono_16`); there is NO Kconfig to enlarge it.
 - **Battery labels**: `CONFIG_..._CENTRAL_SHOW_BATTERY_PERIPHERAL_ALL=y` shows both halves AND suppresses the hardcoded “SIG” label; requires `CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y`.
 - **BT profile number**: no disable flag; set `CONFIG_NICE_OLED_WIDGET_PROFILE_BIG=n` to shrink it.
+- **Do not trust coordinate math blindly for every widget.** Small moves must be validated on hardware. On this board, the profile indicator responded empirically to `PROFILE_CUSTOM_Y` as the reliable vertical/downward adjustment, while `PROFILE_CUSTOM_X` shifted it sideways in practice.
 - **HID indicators (CapsLock) do NOT work on this display.** The bongo cat and luna sub-modes both render as a solid white rectangle on the nice!view 1-bit monochrome display. The plain (no animation) mode shows nothing (confirmed from source: just `lv_label_set_text("")`). There is no working CapsLock indicator without patching the module.
+- **LVGL child-image widgets remain high-risk on this hardware.** Treat WPM Luna, WPM Bongo Cat, and HID indicator animation modes as likely white-box/freeze candidates unless the user explicitly wants to re-test them.
+- **`CONFIG_NICE_OLED_WIDGET_OUTPUT_BACKGROUND` must stay `n`** unless deliberately re-testing the white rectangle behind the BT/USB icon.
+- **Undefined Kconfig symbols break CI.** `CONFIG_NICE_OLED_SPLIT_TOTAL_DEVICES` is a C macro, not a Kconfig option; never assign it in `.conf`.
+
+### RAW HID host constraints
+
+- The wired media widget is `CONFIG_NICE_OLED_WIDGET_RAW_HID_MEDIA_PLAYER_SPOTIFY_MACOS`; despite the name, it works on Windows because it listens for raw HID byte `0xAE`.
+- The module's firmware parser has an off-by-one bug in `boards/shields/nice_oled/src/raw_hid/hid.c`: it copies media text from `&data[1]` even though the host format is `[type, length, chars...]`. That wastes one byte on the length field and force-nulls the last byte of an 11-byte buffer.
+- Practical consequence: the media widget has roughly **9 real visible characters total**, so separate artist/title multi-line layouts are fundamentally unstable without forking `zmk-nice-oled`.
+- Current stable host-side workaround is the vendored `windows.rs` patch: a single `MediaTitle` packet path with a custom leading play/pause byte and a clamped 4/4 two-row payload. If the user wants to restore that behavior, prefer the files under `host_patches/qmk-hid-host/` over re-deriving it from scratch.
+- The separate `MediaArtist` packet path is intentionally not used in the current stable workaround.
+- Weather on Windows is supported only because the local host app is patched. Re-downloading the stock `windows.zip` from upstream will regress weather until the vendored patches are re-applied.
 
 ### Current curated layout (left → right on the 160-wide screen)
 
 | Zone          | Widget                               | Position                                                          |
 | ------------- | ------------------------------------ | ----------------------------------------------------------------- |
 | X≈13          | Layer name (largest font)            | canvas, portrait `0,146`                                          |
-| X≈30          | BT profile number (small)            | `PROFILE_BIG=n`                                                   |
+| X≈30          | BT profile number (small)            | `PROFILE_BIG=n`; fine-tune with tiny `PROFILE_CUSTOM_Y` nudges    |
 | X=49/65/81/97 | Modifiers `⊞ ⇧ Alt ⌃` horizontal row | canvas VER CENTER (hardcoded portrait `27,62–110`), physical Y=27 |
 | X≈140         | Battery `L% R%` (no labels)          | canvas, portrait `26,19`                                          |
 | X≈159         | Output / signal (BT/USB)             | canvas, portrait `49,0`                                           |

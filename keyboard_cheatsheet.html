@@ -236,6 +236,9 @@
         font-weight: 900;
         color: #0891b2;
         line-height: 1;
+        display: inline-block;
+        border-radius: 999px;
+        padding: 0 2px;
       }
       .cmap-legend {
         display: grid;
@@ -256,11 +259,84 @@
         font-weight: 900;
         color: #0891b2;
         flex: 0 0 auto;
+        border-radius: 999px;
+        padding: 0 3px;
+        line-height: 1.35;
       }
       .cmap-la {
         font-size: 6.5px;
         color: #334155;
         white-space: nowrap;
+      }
+      /* Each combo index gets its own distinct color so the same number
+         on different keys can be visually traced back to one combo. */
+      .c1 {
+        background: #d32f2f;
+        color: #ffffff;
+      }
+      .c2 {
+        background: #00acc1;
+        color: #ffffff;
+      }
+      .c3 {
+        background: #ffd600;
+        color: #1a1a1a;
+      }
+      .c4 {
+        background: #5e35b1;
+        color: #ffffff;
+      }
+      .c5 {
+        background: #43a047;
+        color: #ffffff;
+      }
+      .c6 {
+        background: #f4511e;
+        color: #ffffff;
+      }
+      .c7 {
+        background: #1e88e5;
+        color: #ffffff;
+      }
+      .c8 {
+        background: #8e24aa;
+        color: #ffffff;
+      }
+      .c9 {
+        background: #c0ca33;
+        color: #1a1a1a;
+      }
+      .c10 {
+        background: #00897b;
+        color: #ffffff;
+      }
+      .c11 {
+        background: #fb8c00;
+        color: #1a1a1a;
+      }
+      .c12 {
+        background: #3949ab;
+        color: #ffffff;
+      }
+      .c13 {
+        background: #e53935;
+        color: #ffffff;
+      }
+      .c14 {
+        background: #00bfa5;
+        color: #1a1a1a;
+      }
+      .c15 {
+        background: #7cb342;
+        color: #1a1a1a;
+      }
+      .c16 {
+        background: #6d4c41;
+        color: #ffffff;
+      }
+      .c17 {
+        background: #f06292;
+        color: #1a1a1a;
       }
 
       /* ── Cards ───────────────────────────────────────────── */
@@ -788,7 +864,7 @@
                   <div class="key"><div class="tap">4</div></div>
                   <div class="key"><div class="tap">5</div></div>
                   <div class="gap" style="width: 22px"></div>
-                  <div class="key joy"><div class="tap">PREV</div></div>
+                  <div class="key joy"><div class="tap">MAX</div></div>
                   <div class="gap" style="width: 22px"></div>
                   <div class="key"><div class="tap">6</div></div>
                   <div class="key"><div class="tap">7</div></div>
@@ -806,9 +882,9 @@
                   <div class="key"><div class="tap">BT2</div></div>
                   <div class="key"><div class="tap">BT3</div></div>
                   <div class="key"><div class="tap">BT4</div></div>
-                  <div class="key joy ghost"><div class="tap">base</div></div>
-                  <div class="key joy"><div class="tap">PLAY</div></div>
-                  <div class="key joy ghost"><div class="tap">base</div></div>
+                  <div class="key joy"><div class="tap">Snap←</div></div>
+                  <div class="key joy"><div class="tap">Task</div></div>
+                  <div class="key joy"><div class="tap">Snap→</div></div>
                   <div class="key"><div class="tap">LEFT</div></div>
                   <div class="key"><div class="tap">DOWN</div></div>
                   <div class="key"><div class="tap">UP</div></div>
@@ -827,7 +903,7 @@
                     <div class="tap">C+SPC</div>
                     <div class="hold">⊞+Alt+K</div>
                   </div>
-                  <div class="key joy"><div class="tap">NEXT</div></div>
+                  <div class="key joy"><div class="tap">MIN</div></div>
                   <div class="gap" style="width: 22px"></div>
                   <div class="key"><div class="tap">FX-</div></div>
                   <div class="key"><div class="tap">SPD+</div></div>
@@ -874,7 +950,7 @@
                   <div class="line-list">
                     <div class="line-item">
                       <span class="tag">joystick</span
-                      ><span>media prev / play / next</span>
+                      ><span>max, snap left, task view, snap right, min</span>
                     </div>
                     <div class="line-item">
                       <span class="tag">right side</span
@@ -901,7 +977,7 @@
                   <div class="key"><div class="tap">$</div></div>
                   <div class="key"><div class="tap">%</div></div>
                   <div class="gap" style="width: 22px"></div>
-                  <div class="key joy"><div class="tap">↑</div></div>
+                  <div class="key joy"><div class="tap">PREV</div></div>
                   <div class="gap" style="width: 22px"></div>
                   <div class="key"><div class="tap">^</div></div>
                   <div class="key"><div class="tap">&amp;</div></div>
@@ -917,12 +993,11 @@
                   <div class="key"><div class="tap">MCLK</div></div>
                   <div class="key"><div class="tap">RCLK</div></div>
                   <div class="key"><div class="tap">Btn 4</div></div>
-                  <div class="key joy"><div class="tap">←</div></div>
+                  <div class="key joy"><div class="tap">VD←</div></div>
                   <div class="key joy">
-                    <div class="tap">Cpy</div>
-                    <div class="hold">Pst/Cut</div>
+                    <div class="tap">PLAY</div>
                   </div>
-                  <div class="key joy"><div class="tap">→</div></div>
+                  <div class="key joy"><div class="tap">VD→</div></div>
                   <div class="key"><div class="tap">-</div></div>
                   <div class="key"><div class="tap">=</div></div>
                   <div class="key"><div class="tap">[</div></div>
@@ -941,7 +1016,7 @@
                     <div class="tap">Dup↓</div>
                     <div class="hold">Alt+Sh+↓</div>
                   </div>
-                  <div class="key joy"><div class="tap">↓</div></div>
+                  <div class="key joy"><div class="tap">NEXT</div></div>
                   <div class="gap" style="width: 22px"></div>
                   <div class="key"><div class="tap">_</div></div>
                   <div class="key"><div class="tap">+</div></div>
@@ -968,12 +1043,12 @@
                   <div class="mini-title">Joystick &amp; Mouse</div>
                   <div class="line-list">
                     <div class="line-item">
-                      <span class="tag">↑ ← → ↓</span
-                      ><span>arrow keys (joystick)</span>
+                      <span class="tag">up / center / down</span
+                      ><span>media prev / play / next</span>
                     </div>
                     <div class="line-item">
-                      <span class="tag">center</span
-                      ><span>tap Copy · 2× Paste · 3× Cut</span>
+                      <span class="tag">left / right</span
+                      ><span>desktop left / desktop right</span>
                     </div>
                     <div class="line-item">
                       <span class="tag">S D F</span
@@ -1143,7 +1218,7 @@
               <div class="card-head">
                 <h2>Combos</h2>
                 <div class="card-note">
-                  layer 0 · cyan = combo key · numbers = combo index
+                  layer 0 · number color links combo to its keys
                 </div>
               </div>
               <div class="cmap-body">
@@ -1151,42 +1226,47 @@
                   <div class="cmap-row">
                     <div class="cmap-key wide combo">
                       <span class="cmap-letter">TAB</span>
-                      <div class="cmap-nums"><span class="cmap-n">1</span></div>
+                      <div class="cmap-nums">
+                        <span class="cmap-n c1">1</span
+                        ><span class="cmap-n c17">17</span>
+                      </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">Q</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">1</span
-                        ><span class="cmap-n">2</span
-                        ><span class="cmap-n">3</span
-                        ><span class="cmap-n">16</span>
+                        <span class="cmap-n c1">1</span
+                        ><span class="cmap-n c2">2</span
+                        ><span class="cmap-n c3">3</span
+                        ><span class="cmap-n c16">16</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">W</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">2</span
-                        ><span class="cmap-n">4</span
-                        ><span class="cmap-n">5</span>
+                        <span class="cmap-n c2">2</span
+                        ><span class="cmap-n c4">4</span
+                        ><span class="cmap-n c5">5</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">E</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">3</span
-                        ><span class="cmap-n">4</span>
+                        <span class="cmap-n c3">3</span
+                        ><span class="cmap-n c4">4</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">R</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">5</span
-                        ><span class="cmap-n">6</span>
+                        <span class="cmap-n c5">5</span
+                        ><span class="cmap-n c6">6</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">T</span>
-                      <div class="cmap-nums"><span class="cmap-n">6</span></div>
+                      <div class="cmap-nums">
+                        <span class="cmap-n c6">6</span>
+                      </div>
                     </div>
                     <div class="cmap-gap"></div>
                     <div class="cmap-key">
@@ -1197,21 +1277,28 @@
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">I</span>
-                      <div class="cmap-nums"><span class="cmap-n">7</span></div>
+                      <div class="cmap-nums">
+                        <span class="cmap-n c7">7</span>
+                      </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">O</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">7</span
-                        ><span class="cmap-n">8</span>
+                        <span class="cmap-n c7">7</span
+                        ><span class="cmap-n c8">8</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">P</span>
-                      <div class="cmap-nums"><span class="cmap-n">8</span></div>
+                      <div class="cmap-nums">
+                        <span class="cmap-n c8">8</span>
+                      </div>
                     </div>
-                    <div class="cmap-key wide">
+                    <div class="cmap-key wide combo">
                       <span class="cmap-letter">ESC</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n c17">17</span>
+                      </div>
                     </div>
                   </div>
                   <div class="cmap-row">
@@ -1224,7 +1311,7 @@
                     <div class="cmap-key combo">
                       <span class="cmap-letter">S</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">16</span>
+                        <span class="cmap-n c16">16</span>
                       </div>
                     </div>
                     <div class="cmap-key">
@@ -1233,13 +1320,15 @@
                     <div class="cmap-key combo">
                       <span class="cmap-letter">F</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">9</span
-                        ><span class="cmap-n">10</span>
+                        <span class="cmap-n c9">9</span
+                        ><span class="cmap-n c10">10</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">G</span>
-                      <div class="cmap-nums"><span class="cmap-n">9</span></div>
+                      <div class="cmap-nums">
+                        <span class="cmap-n c9">9</span>
+                      </div>
                     </div>
                     <div class="cmap-gap"></div>
                     <div class="cmap-key">
@@ -1248,7 +1337,7 @@
                     <div class="cmap-key combo">
                       <span class="cmap-letter">J</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">10</span>
+                        <span class="cmap-n c10">10</span>
                       </div>
                     </div>
                     <div class="cmap-key">
@@ -1271,30 +1360,30 @@
                     <div class="cmap-key combo">
                       <span class="cmap-letter">Z</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">11</span
-                        ><span class="cmap-n">16</span>
+                        <span class="cmap-n c11">11</span
+                        ><span class="cmap-n c16">16</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">X</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">11</span
-                        ><span class="cmap-n">12</span
-                        ><span class="cmap-n">14</span>
+                        <span class="cmap-n c11">11</span
+                        ><span class="cmap-n c12">12</span
+                        ><span class="cmap-n c14">14</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">C</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">12</span
-                        ><span class="cmap-n">13</span>
+                        <span class="cmap-n c12">12</span
+                        ><span class="cmap-n c13">13</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">V</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">13</span
-                        ><span class="cmap-n">14</span>
+                        <span class="cmap-n c13">13</span
+                        ><span class="cmap-n c14">14</span>
                       </div>
                     </div>
                     <div class="cmap-key">
@@ -1313,13 +1402,13 @@
                     <div class="cmap-key combo">
                       <span class="cmap-letter">.</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">15</span>
+                        <span class="cmap-n c15">15</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">/</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n">15</span>
+                        <span class="cmap-n c15">15</span>
                       </div>
                     </div>
                     <div class="cmap-key wide">
@@ -1329,67 +1418,71 @@
                 </div>
                 <div class="cmap-legend">
                   <div class="cmap-item">
-                    <span class="cmap-ln">1</span
-                    ><span class="cmap-la">TAB+Q Terminal</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">2</span
-                    ><span class="cmap-la">Q+W Save</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">3</span
-                    ><span class="cmap-la">Q+E Select all</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">4</span
-                    ><span class="cmap-la">W+E Add next</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">5</span
-                    ><span class="cmap-la">W+R Find files</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">6</span
-                    ><span class="cmap-la">R+T Rename</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">7</span
-                    ><span class="cmap-la">I+O Copilot inline</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">8</span
-                    ><span class="cmap-la">O+P Delete</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">9</span
-                    ><span class="cmap-la">F+G Find</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">10</span
-                    ><span class="cmap-la">F+J Enter</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">11</span
-                    ><span class="cmap-la">Z+X Undo</span>
-                  </div>
-                  <div class="cmap-item">
-                    <span class="cmap-ln">12</span
+                    <span class="cmap-ln c12">12</span
                     ><span class="cmap-la">X+C Copy</span>
                   </div>
                   <div class="cmap-item">
-                    <span class="cmap-ln">13</span
+                    <span class="cmap-ln c13">13</span
                     ><span class="cmap-la">C+V Paste</span>
                   </div>
                   <div class="cmap-item">
-                    <span class="cmap-ln">14</span
+                    <span class="cmap-ln c14">14</span
                     ><span class="cmap-la">X+V Cut</span>
                   </div>
                   <div class="cmap-item">
-                    <span class="cmap-ln">15</span
+                    <span class="cmap-ln c11">11</span
+                    ><span class="cmap-la">Z+X Undo</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c3">3</span
+                    ><span class="cmap-la">Q+E Select all</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c2">2</span
+                    ><span class="cmap-la">Q+W Save</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c10">10</span
+                    ><span class="cmap-la">F+J Enter</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c8">8</span
+                    ><span class="cmap-la">O+P Delete</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c15">15</span
                     ><span class="cmap-la">./ Comment</span>
                   </div>
                   <div class="cmap-item">
-                    <span class="cmap-ln">16</span
+                    <span class="cmap-ln c9">9</span
+                    ><span class="cmap-la">F+G Find</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c4">4</span
+                    ><span class="cmap-la">W+E Add next</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c5">5</span
+                    ><span class="cmap-la">W+R Find files</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c6">6</span
+                    ><span class="cmap-la">R+T Rename</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c7">7</span
+                    ><span class="cmap-la">I+O Copilot inline</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c1">1</span
+                    ><span class="cmap-la">TAB+Q Terminal</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c17">17</span
+                    ><span class="cmap-la">TAB+ESC Alt+F4</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c16">16</span
                     ><span class="cmap-la">Q+S+Z Soft off</span>
                   </div>
                 </div>
