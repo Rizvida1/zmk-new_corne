@@ -1,5 +1,5 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 2500  // Must be >=1000/trigger_period_ms(16) for non-zero scroll per tick; 2500 = exactly 1 scroll click per encoder step (40 units * zip_scroll_scaler 3 = 120 HID units)
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 1100  // Small, consistent wheel-like step size.
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -12,11 +12,11 @@
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
-&msc_input_listener { input-processors = <&zip_scroll_scaler 3 1>; };  // Increased scaling for faster scroll
+&msc_input_listener { input-processors = <&zip_scroll_scaler 1 1>; };  // 1:1 scaling for predictable wheel behavior.
 
 &msc {
-    acceleration-exponent = <2>;      // More aggressive acceleration (was 1)
-    time-to-max-speed-ms = <25>;      // Even faster acceleration ramp-up (was 40)
+    acceleration-exponent = <1>;      // Mild acceleration, closer to physical wheel feel.
+    time-to-max-speed-ms = <1000>;    // Slow ramp so normal turns stay consistent.
     delay-ms = <0>;                   // No delay for immediate response
 };
 
@@ -99,11 +99,11 @@
         // Fn layer center joystick: tap=LCLK, hold=RCLK
         joy_click_hold: joy_click_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <250>;
             quick-tap-ms = <175>;
-            bindings = <&mkp RCLK>, <&mkp LCLK>;
+            bindings = <&mkp>, <&mkp>;
         };
     };
 
@@ -310,7 +310,7 @@
             display-name = "Fn";
             bindings = <
 &studio_unlock  &kp F1      &kp F2         &kp F3        &kp F4         &kp F5                                           &mmv MOVE_UP                     &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans          &trans      &kp LS(TAB)    &kp LALT      &kp TAB        &mkp MB4                         &mmv MOVE_LEFT  &joy_click_hold  &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+&trans          &trans      &kp LS(TAB)    &kp LALT      &kp TAB        &mkp MB4                         &mmv MOVE_LEFT  &joy_click_hold RCLK LCLK  &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
 &trans          &sys_reset  &trans         &bootloader   &trans         &mkp MB5  &mt LC(LS(T)) LC(W)                    &mmv MOVE_DOWN                   &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
                                            &trans        &kp SPACE      &trans                                                                            &trans  &kp BSPC   &trans
             >;
