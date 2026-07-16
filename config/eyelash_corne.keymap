@@ -1,5 +1,5 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 600  // Small, consistent wheel-like step size.
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 700  // Small, consistent wheel-like step size.
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -15,8 +15,8 @@
 &msc_input_listener { input-processors = <&zip_scroll_scaler 1 1>; };  // 1:1 scaling for predictable wheel behavior.
 
 &msc {
-    acceleration-exponent = <1>;      // Mild acceleration, closer to physical wheel feel.
-    time-to-max-speed-ms = <1000>;    // Slow ramp so normal turns stay consistent.
+    acceleration-exponent = <2>;      // Mild acceleration, closer to physical wheel feel.
+    time-to-max-speed-ms = <500>;    // Slow ramp so normal turns stay consistent.
     delay-ms = <0>;                   // No delay for immediate response
 };
 
