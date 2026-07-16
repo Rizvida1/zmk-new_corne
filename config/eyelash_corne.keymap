@@ -96,12 +96,14 @@
             bindings = <&kp LC(C)>, <&kp LC(V)>, <&kp LC(X)>;
         };
 
-        // Fn layer center joystick: tap=LCLK, 2x=RCLK
-        td_click: td_left_right_click {
-            compatible = "zmk,behavior-tap-dance";
+        // Fn layer center joystick: tap=LCLK, hold=RCLK
+        joy_click_hold: joy_click_hold {
+            compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;
+            flavor = "balanced";
             tapping-term-ms = <250>;
-            bindings = <&mkp LCLK>, <&mkp RCLK>;
+            quick-tap-ms = <175>;
+            bindings = <&mkp RCLK>, <&mkp LCLK>;
         };
     };
 
@@ -250,6 +252,19 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &caps_word &tog 4>;
         };
+
+        // Hold Win for ~1s after snap so Snap Assist doesn't appear immediately.
+        win_snap_left_linger: win_snap_left_linger {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI &macro_tap &kp LEFT &macro_wait_time 1000 &macro_release &kp LGUI>;
+        };
+
+        win_snap_right_linger: win_snap_right_linger {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI &macro_tap &kp RIGHT &macro_wait_time 1000 &macro_release &kp LGUI>;
+        };
     };
 
     keymap {
@@ -271,7 +286,7 @@
             display-name = "NUMBER";
             bindings = <
 &trans           &kp N1           &kp N2          &kp N3           &kp N4           &kp N5                                               &kp LG(UP)                   &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp INS
-&bt BT_CLR_ALL   &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                                 &kp LG(LEFT)  &kp LG(TAB)    &kp LG(RIGHT)  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+&bt BT_CLR_ALL   &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                                 &win_snap_left_linger  &kp LG(TAB)    &win_snap_right_linger  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
 &trans           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_HUI  &rgb_ug RGB_HUD  &rgb_ug RGB_EFF  &mt LC(SPACE) LG(LA(K))             &kp LG(DOWN)                 &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
                                                   &kp LC(SPACE)    &kp DEL          &kp LA(TAB)                                                                       &trans           &trans           &trans
             >;
@@ -295,7 +310,7 @@
             display-name = "Fn";
             bindings = <
 &studio_unlock  &kp F1      &kp F2         &kp F3        &kp F4         &kp F5                                           &mmv MOVE_UP                     &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans          &trans      &kp LS(TAB)    &kp LALT      &kp TAB        &mkp MB4                         &mmv MOVE_LEFT  &td_click       &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
+&trans          &trans      &kp LS(TAB)    &kp LALT      &kp TAB        &mkp MB4                         &mmv MOVE_LEFT  &joy_click_hold  &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
 &trans          &sys_reset  &trans         &bootloader   &trans         &mkp MB5  &mt LC(LS(T)) LC(W)                    &mmv MOVE_DOWN                   &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
                                            &trans        &kp SPACE      &trans                                                                            &trans  &kp BSPC   &trans
             >;

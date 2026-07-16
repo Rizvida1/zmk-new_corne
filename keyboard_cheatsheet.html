@@ -531,6 +531,11 @@
         font-size: 7.5px;
       }
 
+      .tap.mouse-icon {
+        font-size: 9px;
+        line-height: 1;
+      }
+
       .hold {
         font-size: 5.8px;
         font-weight: 600;
@@ -882,9 +887,9 @@
                   <div class="key"><div class="tap">BT2</div></div>
                   <div class="key"><div class="tap">BT3</div></div>
                   <div class="key"><div class="tap">BT4</div></div>
-                  <div class="key joy"><div class="tap">Snap←</div></div>
+                  <div class="key joy"><div class="tap">Snp&lt;</div></div>
                   <div class="key joy"><div class="tap">Task</div></div>
-                  <div class="key joy"><div class="tap">Snap→</div></div>
+                  <div class="key joy"><div class="tap">Snp&gt;</div></div>
                   <div class="key"><div class="tap">LEFT</div></div>
                   <div class="key"><div class="tap">DOWN</div></div>
                   <div class="key"><div class="tap">UP</div></div>
@@ -950,7 +955,10 @@
                   <div class="line-list">
                     <div class="line-item">
                       <span class="tag">joystick</span
-                      ><span>max, snap left, task view, snap right, min</span>
+                      ><span
+                        >max, snap left (1s hold), task view, snap right (1s
+                        hold), min</span
+                      >
                     </div>
                     <div class="line-item">
                       <span class="tag">right side</span
@@ -1094,7 +1102,7 @@
                   <div class="key"><div class="tap">F5</div></div>
                   <div class="gap" style="width: 22px"></div>
                   <div class="key joy">
-                    <div class="tap">MOVE</div>
+                    <div class="tap mouse-icon">🖱</div>
                     <div class="hold">UP</div>
                   </div>
                   <div class="gap" style="width: 22px"></div>
@@ -1113,15 +1121,15 @@
                   <div class="key"><div class="tap">TAB</div></div>
                   <div class="key"><div class="tap">Btn 4</div></div>
                   <div class="key joy">
-                    <div class="tap">MOVE</div>
+                    <div class="tap mouse-icon">🖱</div>
                     <div class="hold">LEFT</div>
                   </div>
                   <div class="key joy">
                     <div class="tap">LClk</div>
-                    <div class="hold">2×RClk</div>
+                    <div class="hold">RClk</div>
                   </div>
                   <div class="key joy">
-                    <div class="tap">MOVE</div>
+                    <div class="tap mouse-icon">🖱</div>
                     <div class="hold">RIGHT</div>
                   </div>
                   <div class="key ghost"><div class="tap">base</div></div>
@@ -1143,7 +1151,7 @@
                     <div class="hold">Reopen</div>
                   </div>
                   <div class="key joy">
-                    <div class="tap">MOVE</div>
+                    <div class="tap mouse-icon">🖱</div>
                     <div class="hold">DOWN</div>
                   </div>
                   <div class="gap" style="width: 22px"></div>
@@ -1190,7 +1198,7 @@
                     </div>
                     <div class="line-item">
                       <span class="tag">joy center</span
-                      ><span>tap LCLK · 2× RCLK</span>
+                      ><span>tap LCLK · hold RCLK</span>
                     </div>
                   </div>
                 </div>
