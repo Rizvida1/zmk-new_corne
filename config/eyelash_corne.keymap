@@ -253,17 +253,17 @@
             bindings = <&macro_tap &caps_word &tog 4>;
         };
 
-        // Hold Win for ~1s after snap so Snap Assist doesn't appear immediately.
+        // Hold Win for ~2s after snap so Snap Assist doesn't appear immediately.
         win_snap_left_linger: win_snap_left_linger {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI &macro_tap &kp LEFT &macro_wait_time 1000 &macro_release &kp LGUI>;
+            bindings = <&macro_press &kp LGUI &macro_tap &kp LEFT &macro_wait_time 2000 &macro_release &kp LGUI>;
         };
 
         win_snap_right_linger: win_snap_right_linger {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI &macro_tap &kp RIGHT &macro_wait_time 1000 &macro_release &kp LGUI>;
+            bindings = <&macro_press &kp LGUI &macro_tap &kp RIGHT &macro_wait_time 2000 &macro_release &kp LGUI>;
         };
     };
 
@@ -275,8 +275,8 @@
             bindings = <
 &kp TAB      &kp Q        &kp W        &kp E         &kp R         &kp T                         &kp UP                &kp Y  &kp U         &kp I         &kp O        &kp P           &kp ESC
 &shift_caps  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G               &kp LEFT  &kp ENTER  &kp RIGHT  &kp H  &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L  &hmr LGUI SEMI  &kp SQT
-&kp LALT     &kp Z        &kp X        &kp C         &kp V         &kp B  &mkp MCLK              &kp DOWN              &kp N  &kp M         &kp COMMA     &kp DOT      &kp FSLH        &kp ENTER
-                                       &kp LGUI      &lt 3 SPACE   &mo 2                                               &mo 1  &lt 3 BSPC    &kp RCTRL
+&kp LGUI     &kp Z        &kp X        &kp C         &kp V         &kp B  &mkp MCLK              &kp DOWN              &kp N  &kp M         &kp COMMA     &kp DOT      &kp FSLH        &kp ENTER
+                                       &kp SPACE     &lt 3 BSPC    &mo 2                                               &mo 1  &lt 3 SPACE   &kp RCTRL
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -286,9 +286,9 @@
             display-name = "NUMBER";
             bindings = <
 &trans           &kp N1           &kp N2          &kp N3           &kp N4           &kp N5                                               &kp LG(UP)                   &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp INS
-&bt BT_CLR_ALL   &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                                 &win_snap_left_linger  &kp LG(TAB)    &win_snap_right_linger  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+&bt BT_CLR_ALL   &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                                 &win_snap_left_linger  &kp LG(TAB)   &win_snap_right_linger  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
 &trans           &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_HUI  &rgb_ug RGB_HUD  &rgb_ug RGB_EFF  &mt LC(SPACE) LG(LA(K))             &kp LG(DOWN)                 &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                                                  &kp LC(SPACE)    &kp DEL          &kp LA(TAB)                                                                       &trans           &trans           &trans
+                                                  &kp LC(SPACE)    &trans           &kp LA(TAB)                                                                       &trans           &kp DEL           &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -312,7 +312,7 @@
 &studio_unlock  &kp F1      &kp F2         &kp F3        &kp F4         &kp F5                                           &mmv MOVE_UP                     &kp F6  &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
 &trans          &trans      &kp LS(TAB)    &kp LALT      &kp TAB        &mkp MB4                         &mmv MOVE_LEFT  &joy_click_hold RCLK LCLK  &mmv MOVE_RIGHT  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
 &trans          &sys_reset  &trans         &bootloader   &trans         &mkp MB5  &mt LC(LS(T)) LC(W)                    &mmv MOVE_DOWN                   &trans  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                                           &trans        &kp SPACE      &trans                                                                            &trans  &kp BSPC   &trans
+                                           &trans        &kp BSPC       &trans                                                                            &trans  &kp SPACE  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(TAB) LC(LS(TAB))>;
