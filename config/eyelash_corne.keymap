@@ -69,6 +69,24 @@
         hold-trigger-key-positions = <TRIGGER_POS>; \
     };
 
+// Shift-specific homerow mods: shift is the one mod needed mid-stream while
+// typing fast, so it gets a shorter tapping term and a much shorter
+// prior-idle window. A misfired shift only produces a capital letter,
+// so the looser settings are a safe tradeoff here (unlike GUI/Alt/Ctrl).
+
+#define MAKE_HRM_SHIFT(NAME, HOLD, TAP, TRIGGER_POS) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        bindings = <HOLD>, <TAP>; \
+        flavor = "balanced"; \
+        tapping-term-ms = <200>; \
+        quick-tap-ms = <QUICK_TAP_MS>; \
+        require-prior-idle-ms = <75>; \
+        hold-trigger-on-release; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+    };
+
 / {
     behaviors {
         // Left-hand homerow mods
@@ -78,6 +96,18 @@
         // Right-hand homerow mods  
 
         MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS POINTING)
+
+        // Shift-only variants (faster hold resolution for mid-typing use)
+
+        MAKE_HRM_SHIFT(hml_shift, &kp, &kp, KEYS_R THUMBS POINTING)
+        MAKE_HRM_SHIFT(hmr_shift, &kp, &kp, KEYS_L THUMBS POINTING)
+
+        tab_alt_tab: tab_alt_tab {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <220>;
+            bindings = <&kp TAB>, <&kp LA(TAB)>;
+        };
 
         shift_caps: shift_caps {
             compatible = "zmk,behavior-tap-dance";
@@ -253,17 +283,18 @@
             bindings = <&macro_tap &caps_word &tog 4>;
         };
 
-        // Hold Win for ~2s after snap so Snap Assist doesn't appear immediately.
+        // Snap window left and dismiss Snap Assist overlay with ESC.
         win_snap_left_linger: win_snap_left_linger {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI &macro_tap &kp LEFT &macro_wait_time 2000 &macro_release &kp LGUI>;
+            bindings = <&macro_press &kp LGUI &macro_tap &kp LEFT &macro_release &kp LGUI &macro_tap &kp ESCAPE>;
         };
 
+        // Snap window right and dismiss Snap Assist overlay with ESC.
         win_snap_right_linger: win_snap_right_linger {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI &macro_tap &kp RIGHT &macro_wait_time 2000 &macro_release &kp LGUI>;
+            bindings = <&macro_press &kp LGUI &macro_tap &kp RIGHT &macro_release &kp LGUI &macro_tap &kp ESCAPE>;
         };
     };
 
@@ -273,8 +304,8 @@
         default_layer {
             display-name = "Rizvi";
             bindings = <
-&kp TAB      &kp Q        &kp W        &kp E         &kp R         &kp T                         &kp UP                &kp Y  &kp U         &kp I         &kp O        &kp P           &kp ESC
-&shift_caps  &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G               &kp LEFT  &kp ENTER  &kp RIGHT  &kp H  &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L  &hmr LGUI SEMI  &kp SQT
+&tab_alt_tab      &kp Q        &kp W        &kp E         &kp R         &kp T                         &kp UP                &kp Y  &kp U         &kp I         &kp O        &kp P           &kp ESC
+&shift_caps  &hml LGUI A  &hml LALT S  &hml_shift LSHFT D  &hml LCTRL F  &kp G               &kp LEFT  &kp ENTER  &kp RIGHT  &kp H  &hmr LCTRL J  &hmr_shift RSHFT K  &hmr LALT L  &hmr LGUI SEMI  &kp SQT
 &kp LGUI     &kp Z        &kp X        &kp C         &kp V         &kp B  &mkp MCLK              &kp DOWN              &kp N  &kp M         &kp COMMA     &kp DOT      &kp FSLH        &kp ENTER
                                        &kp SPACE     &lt 3 BSPC    &mo 2                                               &mo 1  &lt 3 SPACE   &kp RCTRL
             >;
