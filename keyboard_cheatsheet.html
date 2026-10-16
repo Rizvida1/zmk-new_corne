@@ -338,6 +338,18 @@
         background: #f06292;
         color: #1a1a1a;
       }
+      .c18 {
+        background: #26a69a;
+        color: #ffffff;
+      }
+      .c19 {
+        background: #ff7043;
+        color: #ffffff;
+      }
+      .c20 {
+        background: #455a64;
+        color: #ffffff;
+      }
 
       /* ── Cards ───────────────────────────────────────────── */
       .card {
@@ -646,7 +658,8 @@
           <h1>Eyelash Corne Reference</h1>
           <div class="subhead">
             Built for your current optimized keymap. Visual position maps for
-            all four layers — easier to recover muscle memory on blank keycaps.
+            the four main layers — easier to recover muscle memory on blank
+            keycaps. The transparent CAPS display overlay is noted below.
           </div>
         </div>
         <div class="legend-box">
@@ -775,7 +788,7 @@
                   <div class="key wide"><div class="tap">'</div></div>
                 </div>
                 <div class="row">
-                  <div class="key wide"><div class="tap">ALT</div></div>
+                  <div class="key wide"><div class="tap">GUI</div></div>
                   <div class="key"><div class="tap">Z</div></div>
                   <div class="key"><div class="tap">X</div></div>
                   <div class="key"><div class="tap">C</div></div>
@@ -794,9 +807,9 @@
                   <div class="key wide"><div class="tap">ENTER</div></div>
                 </div>
                 <div class="row">
-                  <div class="key thumb"><div class="tap">GUI</div></div>
+                  <div class="key thumb"><div class="tap">SPACE</div></div>
                   <div class="key thumb entry">
-                    <div class="tap">SPACE</div>
+                    <div class="tap">BSPC</div>
                     <div class="hold">ENTRY FN</div>
                   </div>
                   <div class="key thumb entry">
@@ -809,7 +822,7 @@
                     <div class="hold">ENTRY L1</div>
                   </div>
                   <div class="key thumb entry">
-                    <div class="tap">BSPC</div>
+                    <div class="tap">SPACE</div>
                     <div class="hold">ENTRY FN</div>
                   </div>
                   <div class="key thumb"><div class="tap">RCTRL</div></div>
@@ -829,15 +842,15 @@
                     </div>
                     <div class="line-item">
                       <span class="tag">hold</span
-                      ><span>&gt; 280 ms triggers modifier</span>
+                      ><span>280 ms (regular mods); 200 ms (Shift)</span>
                     </div>
                     <div class="line-item">
                       <span class="tag">quick-tap</span
-                      ><span>&le; 300 ms repeats the key</span>
+                      ><span>300 ms for both regular and Shift mods</span>
                     </div>
                     <div class="line-item">
                       <span class="tag">idle</span
-                      ><span>150 ms pause before hold can win</span>
+                      ><span>150 ms regular; 75 ms Shift before hold can win</span>
                     </div>
                   </div>
                 </div>
@@ -922,14 +935,14 @@
                 </div>
                 <div class="row">
                   <div class="key thumb"><div class="tap">CTRL+SPC</div></div>
-                  <div class="key thumb"><div class="tap">DEL</div></div>
+                  <div class="key thumb ghost"><div class="tap">base</div></div>
                   <div class="key thumb"><div class="tap">ALT+TAB</div></div>
                   <div class="gap"></div>
                   <div class="key thumb layer">
                     <div class="tap">ENTRY</div>
                     <div class="hold">HOLD NUM</div>
                   </div>
-                  <div class="key thumb ghost"><div class="tap">base</div></div>
+                  <div class="key thumb"><div class="tap">DEL</div></div>
                   <div class="key thumb ghost"><div class="tap">base</div></div>
                 </div>
               </div>
@@ -959,8 +972,7 @@
                     <div class="line-item">
                       <span class="tag">joystick</span
                       ><span
-                        >max, snap left (1s hold), task view, snap right (1s
-                        hold), min</span
+                        >max, snap left, task view, snap right, min</span
                       >
                     </div>
                     <div class="line-item">
@@ -1025,7 +1037,6 @@
                   <div class="key"><div class="tap">RCLK</div></div>
                   <div class="key iso" style="width: 22px">
                     <div class="tap">Dup↓</div>
-                    <div class="hold">Alt+Sh+↓</div>
                   </div>
                   <div class="key joy"><div class="tap">NEXT</div></div>
                   <div class="gap" style="width: 22px"></div>
@@ -1168,13 +1179,13 @@
                 <div class="row">
                   <div class="key thumb ghost"><div class="tap">base</div></div>
                   <div class="key thumb layer">
-                    <div class="tap">SPACE</div>
+                    <div class="tap">BSPC</div>
                   </div>
                   <div class="key thumb ghost"><div class="tap">base</div></div>
                   <div class="gap"></div>
                   <div class="key thumb ghost"><div class="tap">base</div></div>
                   <div class="key thumb layer">
-                    <div class="tap">BSPC</div>
+                    <div class="tap">SPACE</div>
                   </div>
                   <div class="key thumb ghost"><div class="tap">base</div></div>
                 </div>
@@ -1296,25 +1307,30 @@
                       <span class="cmap-letter">O</span>
                       <div class="cmap-nums">
                         <span class="cmap-n c7">7</span
-                        ><span class="cmap-n c8">8</span>
+                        ><span class="cmap-n c18">18</span>
                       </div>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">P</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n c8">8</span>
+                        <span class="cmap-n c18">18</span
+                        ><span class="cmap-n c8">8</span>
                       </div>
                     </div>
                     <div class="cmap-key wide combo">
                       <span class="cmap-letter">ESC</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n c17">17</span>
+                        <span class="cmap-n c17">17</span
+                        ><span class="cmap-n c8">8</span>
                       </div>
                     </div>
                   </div>
                   <div class="cmap-row">
                     <div class="cmap-key wide">
                       <span class="cmap-letter">SHF</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n c19">19</span>
+                      </div>
                     </div>
                     <div class="cmap-key">
                       <span class="cmap-letter">A</span>
@@ -1362,11 +1378,14 @@
                     </div>
                     <div class="cmap-key wide">
                       <span class="cmap-letter">'</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n c19">19</span>
+                      </div>
                     </div>
                   </div>
                   <div class="cmap-row">
                     <div class="cmap-key wide">
-                      <span class="cmap-letter">ALT</span>
+                      <span class="cmap-letter">GUI</span>
                     </div>
                     <div class="cmap-key combo">
                       <span class="cmap-letter">Z</span>
@@ -1419,11 +1438,15 @@
                     <div class="cmap-key combo">
                       <span class="cmap-letter">/</span>
                       <div class="cmap-nums">
-                        <span class="cmap-n c15">15</span>
+                        <span class="cmap-n c15">15</span
+                        ><span class="cmap-n c20">20</span>
                       </div>
                     </div>
-                    <div class="cmap-key wide">
+                    <div class="cmap-key wide combo">
                       <span class="cmap-letter">ENT</span>
+                      <div class="cmap-nums">
+                        <span class="cmap-n c20">20</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1458,11 +1481,19 @@
                   </div>
                   <div class="cmap-item">
                     <span class="cmap-ln c8">8</span
-                    ><span class="cmap-la">O+P Delete</span>
+                    ><span class="cmap-la">P+Esc Delete</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c18">18</span
+                    ><span class="cmap-la">O+P Ctrl+P (Quick Open)</span>
                   </div>
                   <div class="cmap-item">
                     <span class="cmap-ln c15">15</span
                     ><span class="cmap-la">./ Comment</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c20">20</span
+                    ><span class="cmap-la">/+Ent Win+L (Lock)</span>
                   </div>
                   <div class="cmap-item">
                     <span class="cmap-ln c9">9</span
@@ -1487,6 +1518,10 @@
                   <div class="cmap-item">
                     <span class="cmap-ln c1">1</span
                     ><span class="cmap-la">TAB+Q Terminal</span>
+                  </div>
+                  <div class="cmap-item">
+                    <span class="cmap-ln c19">19</span
+                    ><span class="cmap-la">SHF+' Tab</span>
                   </div>
                   <div class="cmap-item">
                     <span class="cmap-ln c17">17</span
@@ -1518,7 +1553,7 @@
                 </div>
                 <div class="line-item">
                   <span class="tag">USB / BLE</span
-                  ><span>Layer 2 &mdash; Z = USB, X = BLE</span>
+                  ><span>Layer 2 &mdash; X = USB, C = BLE</span>
                 </div>
                 <div class="line-item">
                   <span class="tag">RGB</span
@@ -1530,14 +1565,16 @@
                 <div class="line-item">
                   <span class="tag">Shift key</span
                   ><span
-                    >double-tap = Caps Word (capitalises until a non-alpha
-                    key)</span
+                    >double-tap toggles Caps Word and the transparent CAPS
+                    display overlay. Caps Word ends on a non-alpha key, but
+                    the display overlay remains toggled on.</span
                   >
                 </div>
                 <div class="line-item">
                   <span class="tag">Homerow rule</span
                   ><span
-                    >mods fire reliably only against opposite-hand keys</span
+                    >hold triggers use opposite-hand keys, thumbs, and the
+                    joystick cluster</span
                   >
                 </div>
                 <div class="line-item">
